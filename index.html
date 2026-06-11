@@ -163,6 +163,67 @@
     footer { background: var(--navy); color: rgba(255,255,255,0.38); text-align: center; padding: 2.2rem; font-size: 0.8rem; letter-spacing: 0.02em; }
     footer span { color: var(--gold); }
 
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(13,27,42,0.7); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 14px;
+      max-width: 520px; width: 100%;
+      padding: 2.8rem 2.5rem 2.5rem;
+      position: relative; animation: modalIn 0.22s ease;
+      max-height: 90vh; overflow-y: auto;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute; top: 1.1rem; right: 1.2rem;
+      background: var(--cream); border: none; cursor: pointer;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 1rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #e8e0d6; }
+    .modal-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--navy);
+      font-weight: 700; margin-bottom: 1.2rem;
+    }
+    .modal-body p {
+      color: var(--text-muted); font-size: 0.95rem;
+      line-height: 1.8; margin-bottom: 1rem;
+    }
+    .modal-body ul {
+      list-style: none; padding: 0; margin-bottom: 1rem;
+    }
+    .modal-body ul li {
+      color: var(--text-muted); font-size: 0.92rem;
+      line-height: 1.7; padding: 0.4rem 0;
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: flex-start; gap: 0.6rem;
+    }
+    .modal-body ul li::before { content: "—"; color: var(--gold); flex-shrink: 0; }
+    .modal-cta {
+      margin-top: 1.8rem; padding-top: 1.5rem;
+      border-top: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .modal-cta span { font-size: 0.82rem; color: var(--text-muted); }
+    .card { cursor: pointer; }
+    .card .card-more {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.8rem; color: var(--gold); font-weight: 500;
+      margin-top: 0.8rem; transition: gap 0.2s;
+    }
+    .card:hover .card-more { gap: 0.5rem; }
+
     /* UPLOAD HINT */
     .upload-note { background: rgba(232,168,56,0.1); border: 1px dashed var(--gold); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 2rem; font-size: 0.82rem; color: var(--navy); line-height: 1.6; display: none; }
 
@@ -233,7 +294,7 @@
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">İstanbul · Kadıköy · 2013'ten beri</div>
-    <h1>Ukulele öğrenmek<br>bu kadar <em>kolay</em> olmamıştı.</h1>
+    <h1>Ukulele öğrenmek<br>bu kadar <em>güzel</em> olmamıştı.</h1>
     <p>Erkin Soylu önderliğinde, her seviyeye özel birebir ve grup atölyeleri. İstanbul'da ukulele kültürünü birlikte büyütüyoruz.</p>
     <div class="hero-cta">
       <a href="#iletisim" class="btn-primary">Atölyelere katıl</a>
@@ -248,28 +309,129 @@
   <div class="section-title">Her seviye için bir format var</div>
   <p class="section-sub">Soprano'dan tenora, başlangıçtan ileri seviyeye — kendi hızında, kendi müziğinle öğren.</p>
   <div class="cards-grid">
-    <div class="card">
+    <div class="card" onclick="openModal('birebir')">
       <div class="card-icon">🎵</div>
       <h3>Birebir Atölye</h3>
       <p>Sana özel bir yol haritası. Kendi tempon, kendi seçtiğin parçalar. Doğrudan Erkin Soylu ile çalışma fırsatı.</p>
+      <span class="card-more">Daha fazla →</span>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('grup')">
       <div class="card-icon">🎶</div>
       <h3>Grup Atölyesi</h3>
       <p>Birlikte çalmak farklı bir enerji yaratır. Aynı seviyedeki katılımcılarla eğlenceli ve sosyal bir ortam.</p>
+      <span class="card-more">Daha fazla →</span>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('workshop')">
       <div class="card-icon">🛠</div>
       <h3>Workshop</h3>
       <p>Belirli teknikler ya da stiller üzerine derinlemesine çalışmak isteyenler için özel odaklı oturumlar.</p>
+      <span class="card-more">Daha fazla →</span>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('kulup')">
       <div class="card-icon">🏝</div>
       <h3>Ukulele Kulübü</h3>
       <p>Düzenli buluşmalar, birlikte çalma seansları. İstanbul'un ukulele topluluğuna katıl.</p>
+      <span class="card-more">Daha fazla →</span>
     </div>
   </div>
 </section>
+
+<!-- MODALLER -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this) closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Kapat">✕</button>
+    <div class="modal-icon" id="modal-icon"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-cta">
+      <span>Bilgi almak için ulaşın</span>
+      <a href="#iletisim" class="btn-primary" onclick="closeModal()" style="font-size:0.85rem;">İletişime geç</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var modals = {
+    birebir: {
+      icon: '🎵',
+      title: 'Birebir Atölye',
+      body: `
+        <p>Birebir atölyeler, her katılımcının kendi seviyesine ve hedeflerine göre şekillendirilen özel çalışma oturumlarıdır. Erkin Soylu ile birebir geçireceğiniz bu süreçte kendi müzikal yolculuğunuzun rotasını siz çizersiniz.</p>
+        <ul>
+          <li>Başlangıç, orta ve ileri seviye için ayrı müfredatlar</li>
+          <li>Kendi seçtiğiniz parçalar üzerinden ilerleme</li>
+          <li>Klasik gitar tekniğinden uyarlanmış özgün yöntem</li>
+          <li>Esnek saat ve gün seçeneği</li>
+          <li>Her oturum sonunda ev çalışması ve ilerleme takibi</li>
+        </ul>
+        <p>Daha önce hiç enstrüman çalmamış olanlardan profesyonel müzisyenlere kadar herkese açıktır.</p>
+      `
+    },
+    grup: {
+      icon: '🎶',
+      title: 'Grup Atölyesi',
+      body: `
+        <p>Grup atölyeleri, aynı seviyedeki katılımcıların bir arada öğrendiği, sosyal ve eğlenceli bir ortamda ilerlediği çalışma formatıdır. Birlikte çalmak hem motivasyonu artırır hem de müzikal kulağı hızla geliştirir.</p>
+        <ul>
+          <li>En fazla 6-8 kişilik küçük gruplar</li>
+          <li>Başlangıç ve orta seviye grupları ayrı ayrı</li>
+          <li>Her hafta düzenli tekrar eden oturumlar</li>
+          <li>Grup içinde birlikte parça çalışması</li>
+          <li>Sosyal buluşma ve etkinlik fırsatları</li>
+        </ul>
+        <p>Yeni arkadaşlar edinmek ve müziği paylaşmak isteyenler için ideal bir format.</p>
+      `
+    },
+    workshop: {
+      icon: '🛠',
+      title: 'Workshop',
+      body: `
+        <p>Workshoplar, belirli bir teknik, stil veya repertuvar üzerine yoğunlaşmak isteyenler için düzenlenen odaklı oturumlardır. Genellikle tek seferlik ya da birkaç hafta süren yoğun çalışmalardır.</p>
+        <ul>
+          <li>Fingerpicking, strumming, akor geçişleri gibi teknik konular</li>
+          <li>Belirli müzik stilleri: folk, pop, klasik, Hawaiian</li>
+          <li>Belirli bir besteci veya dönem üzerine inceleme</li>
+          <li>Karma seviye katılımcılara uygun içerik</li>
+          <li>Yıl içinde farklı konularda düzenli etkinlikler</li>
+        </ul>
+        <p>Yaklaşan workshop tarihleri için iletişime geçin ya da Instagram hesabımızı takip edin.</p>
+      `
+    },
+    kulup: {
+      icon: '🏝',
+      title: 'Ukulele Kulübü',
+      body: `
+        <p>Ukulele Kulübü, 2013'ten beri İstanbul'da düzenli olarak bir araya gelen ukulele severlerin buluşma noktasıdır. Moda Sahili, Kadıköy ve çevre alanlarda gerçekleştirilen buluşmalar herkese açıktır.</p>
+        <ul>
+          <li>Her seviyeden katılımcıya açık düzenli buluşmalar</li>
+          <li>2 Mayıs Uluslararası Ukulele Günü kutlamaları</li>
+          <li>Açık hava çalma seansları ve piknik buluşmaları</li>
+          <li>Birbirinden öğrenme ve repertuvar paylaşımı</li>
+          <li>Yeni başlayanlar için destekleyici ve samimi ortam</li>
+        </ul>
+        <p>Bir sonraki buluşmamıza katılmak için Instagram üzerinden ya da iletişim formu aracılığıyla bize ulaşın.</p>
+      `
+    }
+  };
+
+  function openModal(key) {
+    var m = modals[key];
+    document.getElementById('modal-icon').textContent = m.icon;
+    document.getElementById('modal-title').textContent = m.title;
+    document.getElementById('modal-body').innerHTML = m.body;
+    document.getElementById('modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
 
 <!-- HAKKIMIZDA -->
 <div class="about-section" id="hakkimizda">
