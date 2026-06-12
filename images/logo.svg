@@ -1,1 +1,62 @@
+<svg width="400" viewBox="0 0 340 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Ukulele İstanbul</title>
+  <desc>Ukulele İstanbul logosu — lacivert arka plan, altın ukulele illüstrasyonu</desc>
 
+  <rect x="0" y="0" width="340" height="400" rx="16" fill="#0D1B2A"/>
+
+  <!-- Üst etiket -->
+  <text x="170" y="36" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="4" fill="#E8A838" font-family="'DM Sans','Inter',sans-serif" opacity="0.65">UKULELE İSTANBUL</text>
+
+  <!-- Ukulele gövdesi -->
+  <ellipse cx="155" cy="195" rx="68" ry="85" fill="#C8A96E" stroke="#0a1218" stroke-width="2.5"/>
+  <ellipse cx="155" cy="195" rx="48" ry="61" fill="#D4B87A" stroke="#0a1218" stroke-width="1.5"/>
+  <!-- Ses deliği -->
+  <circle cx="155" cy="195" r="18" fill="#0a1218"/>
+  <circle cx="155" cy="195" r="14" fill="#111e2a"/>
+  <!-- Köprü -->
+  <rect x="136" y="230" width="38" height="8" rx="2.5" fill="#0a1218"/>
+  <!-- Teller ana gövde -->
+  <line x1="141" y1="232" x2="141" y2="280" stroke="#8B7355" stroke-width="1.1"/>
+  <line x1="149" y1="232" x2="149" y2="280" stroke="#8B7355" stroke-width="1.1"/>
+  <line x1="160" y1="232" x2="160" y2="280" stroke="#8B7355" stroke-width="1.1"/>
+  <line x1="168" y1="232" x2="168" y2="280" stroke="#8B7355" stroke-width="1.1"/>
+
+  <!-- Sap -->
+  <rect x="0" y="0" width="76" height="16" rx="4" fill="#C8A96E" stroke="#0a1218" stroke-width="1.5"
+    transform="translate(174,138) rotate(-32)"/>
+
+  <!-- Burgular kutusu -->
+  <rect x="0" y="0" width="30" height="42" rx="5" fill="#B8944A" stroke="#0a1218" stroke-width="1.5"
+    transform="translate(216,86) rotate(-32)"/>
+  <!-- Burgu noktaları -->
+  <circle cx="218" cy="97" r="4.5" fill="#0a1218"/>
+  <circle cx="232" cy="90" r="4.5" fill="#0a1218"/>
+  <circle cx="226" cy="117" r="4.5" fill="#0a1218"/>
+  <circle cx="240" cy="110" r="4.5" fill="#0a1218"/>
+
+  <!-- Perde çizgileri -->
+  <line x1="184" y1="155" x2="196" y2="133" stroke="#0a1218" stroke-width="1.2" opacity="0.55"/>
+  <line x1="194" y1="161" x2="206" y2="139" stroke="#0a1218" stroke-width="1.2" opacity="0.55"/>
+  <line x1="204" y1="167" x2="215" y2="145" stroke="#0a1218" stroke-width="1.2" opacity="0.55"/>
+
+  <!-- Teller (sap üzeri, altın) -->
+  <line x1="141" y1="280" x2="183" y2="152" stroke="#E8A838" stroke-width="0.95" opacity="0.75"/>
+  <line x1="149" y1="280" x2="193" y2="158" stroke="#E8A838" stroke-width="0.95" opacity="0.75"/>
+  <line x1="160" y1="280" x2="203" y2="164" stroke="#E8A838" stroke-width="0.95" opacity="0.75"/>
+  <line x1="168" y1="280" x2="211" y2="169" stroke="#E8A838" stroke-width="0.95" opacity="0.75"/>
+
+  <!-- Martılar -->
+  <path d="M82 78 Q91 71 100 78"  fill="none" stroke="#E8A838" stroke-width="2"   stroke-linecap="round" opacity="0.6"/>
+  <path d="M104 62 Q115 54 126 62" fill="none" stroke="#E8A838" stroke-width="2"   stroke-linecap="round" opacity="0.5"/>
+  <path d="M198 70 Q207 63 216 70" fill="none" stroke="#E8A838" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+  <path d="M222 56 Q229 50 236 56" fill="none" stroke="#E8A838" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+
+  <!-- Ayırıcı çizgi -->
+  <line x1="60" y1="308" x2="280" y2="308" stroke="#E8A838" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Logo yazısı -->
+  <text x="170" y="348" text-anchor="middle" font-size="42" font-weight="700"
+    fill="#E8A838" font-family="'Cormorant Garamond','Georgia',serif" font-style="italic" letter-spacing="1">Ukulele</text>
+  <text x="170" y="388" text-anchor="middle" font-size="42" font-weight="700"
+    fill="#F5C96B" font-family="'Cormorant Garamond','Georgia',serif" font-style="italic" letter-spacing="1">İstanbul</text>
+</svg>
