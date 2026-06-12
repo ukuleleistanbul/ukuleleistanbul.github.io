@@ -483,29 +483,64 @@
     <div class="section-label">YouTube</div>
     <div class="section-title">Son videolardan seçmeler</div>
     <p class="section-sub">Ukulele uyarlamaları, atölye içerikleri ve etkinlik videoları için kanalımızı takip edin.</p>
-    <div class="videos-grid">
-      <div class="video-card">
-        <div class="video-thumb">
-          <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UkuleleIstanbul&index=0"
-            allowfullscreen loading="lazy" title="Ukulele İstanbul – En yeni video"></iframe>
-        </div>
-        <div class="video-info"><h4>En yeni video</h4></div>
-      </div>
-      <div class="video-card">
-        <div class="video-thumb">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=UU_UCSRguOzp_HOI1CaD0iaTx1Q"
-            allowfullscreen loading="lazy" title="Ukulele İstanbul – Teknik içerikler"></iframe>
-        </div>
-        <div class="video-info"><h4>Teknik içerikler ve gösteriler</h4></div>
-      </div>
-      <div class="video-cta-card">
-        <div class="play-icon">▶</div>
-        <p>Tüm videoları YouTube kanalımızda izleyin</p>
-        <a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">Kanala git</a>
+    <div class="videos-grid" id="videos-grid">
+      <!-- Yükleniyor -->
+      <div class="video-card" style="padding:2rem;display:flex;align-items:center;justify-content:center;min-height:180px;">
+        <span style="color:var(--text-muted);font-size:0.9rem;">Videolar yükleniyor…</span>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    var CHANNEL_ID = 'UCSRguOzp_HOI1CaD0iaTx1Q';
+    var RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+    var PROXY = 'https://api.allorigins.win/get?url=' + encodeURIComponent(RSS_URL);
+
+    fetch(PROXY)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var parser = new DOMParser();
+        var xml = parser.parseFromString(data.contents, 'text/xml');
+        var entries = xml.querySelectorAll('entry');
+        var grid = document.getElementById('videos-grid');
+        grid.innerHTML = '';
+
+        var count = 0;
+        entries.forEach(function(entry) {
+          if (count >= 2) return;
+          var videoId = entry.querySelector('videoId') ? entry.querySelector('videoId').textContent
+            : entry.querySelector('id').textContent.replace('yt:video:', '');
+          var title = entry.querySelector('title').textContent;
+
+          var card = document.createElement('div');
+          card.className = 'video-card';
+          card.innerHTML =
+            '<div class="video-thumb">' +
+              '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen loading="lazy" title="' + title + '"></iframe>' +
+            '</div>' +
+            '<div class="video-info"><h4>' + title + '</h4></div>';
+          grid.appendChild(card);
+          count++;
+        });
+
+        var ctaCard = document.createElement('div');
+        ctaCard.className = 'video-cta-card';
+        ctaCard.innerHTML =
+          '<div class="play-icon">▶</div>' +
+          '<p>Tüm videoları YouTube kanalımızda izleyin</p>' +
+          '<a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">Kanala git</a>';
+        grid.appendChild(ctaCard);
+      })
+      .catch(function() {
+        var grid = document.getElementById('videos-grid');
+        grid.innerHTML =
+          '<div class="video-card"><div class="video-thumb"><iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UkuleleIstanbul&index=0" allowfullscreen loading="lazy"></iframe></div><div class="video-info"><h4>En yeni video</h4></div></div>' +
+          '<div class="video-cta-card"><div class="play-icon">▶</div><p>Tüm videoları YouTube kanalımızda izleyin</p><a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">Kanala git</a></div>';
+      });
+  })();
+</script>
 
 <!-- İLETİŞİM -->
 <section class="contact-section" id="iletisim">
