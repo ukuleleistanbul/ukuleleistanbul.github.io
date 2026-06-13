@@ -47,6 +47,7 @@
       display: flex; align-items: center;
       position: relative; overflow: hidden;
       padding: 5rem 2.5rem;
+      justify-content: center;
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -54,7 +55,12 @@
       background-size: cover; background-position: center;
       opacity: 0.18; z-index: 0;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 580px; }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1000px; width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .hero-content { max-width: 540px; flex-shrink: 0; }
     .hero-eyebrow {
       display: inline-block; color: var(--gold); font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.18em; text-transform: uppercase;
@@ -69,7 +75,7 @@
     .btn-primary:hover { background: var(--gold-light); }
     .btn-outline { border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.82); padding: 13px 30px; border-radius: 4px; text-decoration: none; font-weight: 400; font-size: 0.9rem; transition: border-color 0.2s, color 0.2s; display: inline-block; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .hero-illustration { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none; }
+    .hero-illustration { pointer-events: none; flex-shrink: 0; }
     .hero-illustration img { width: 320px; max-width: 36vw; opacity: 0.75; }
 
     /* SECTIONS */
@@ -235,6 +241,7 @@
       .nav-links { display: none; }
       .nav-mobile-btn { display: block; }
       .hero { padding: 4rem 1.5rem; min-height: 80vh; }
+      .hero-inner { flex-direction: column; }
       .hero-illustration { display: none; }
       .section, .gallery-section, .videos-section, .contact-section { padding: 3.5rem 1.5rem; }
       .about-section { padding: 3.5rem 1.5rem; }
@@ -270,10 +277,11 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-illustration" aria-hidden="true">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiB2aWV3Qm94PSIwIDAgMzQwIDI5NSIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDx0aXRsZT5Va3VsZWxlIElzdGFuYnVsPC90aXRsZT4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjI5NSIgcng9IjE2IiBmaWxsPSIjMEQxQjJBIi8+CiAgPHRleHQgeD0iMTcwIiB5PSIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiNFOEE4MzgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBvcGFjaXR5PSIwLjY1Ij5VS1VMRUxFIElTVEFOQlVMPC90ZXh0PgogIDxlbGxpcHNlIGN4PSIxNTUiIGN5PSIxOTUiIHJ4PSI2OCIgcnk9Ijg1IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPGVsbGlwc2UgY3g9IjE1NSIgY3k9IjE5NSIgcng9IjQ4IiByeT0iNjEiIGZpbGw9IiNENEI4N0EiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8Y2lyY2xlIGN4PSIxNTUiIGN5PSIxOTUiIHI9IjE4IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iMTk1IiByPSIxNCIgZmlsbD0iIzExMWUyYSIvPgogIDxyZWN0IHg9IjEzNiIgeT0iMjMwIiB3aWR0aD0iMzgiIGhlaWdodD0iOCIgcng9IjIuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxsaW5lIHgxPSIxNDEiIHkxPSIyMzIiIHgyPSIxNDEiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8bGluZSB4MT0iMTQ5IiB5MT0iMjMyIiB4Mj0iMTQ5IiB5Mj0iMjgwIiBzdHJva2U9IiM4QjczNTUiIHN0cm9rZS13aWR0aD0iMS4xIi8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjIzMiIgeDI9IjE2MCIgeTI9IjI4MCIgc3Ryb2tlPSIjOEI3MzU1IiBzdHJva2Utd2lkdGg9IjEuMSIvPgogIDxsaW5lIHgxPSIxNjgiIHkxPSIyMzIiIHgyPSIxNjgiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzYiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzQsMTM4KSByb3RhdGUoLTMyKSIvPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0MiIgcng9IjUiIGZpbGw9IiNCODk0NEEiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiw4Nikgcm90YXRlKC0zMikiLz4KICA8Y2lyY2xlIGN4PSIyMTgiIGN5PSI5NyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjMyIiBjeT0iOTAiIHI9IjQuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxjaXJjbGUgY3g9IjIyNiIgY3k9IjExNyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iMTEwIiByPSI0LjUiIGZpbGw9IiMwYTEyMTgiLz4KICA8bGluZSB4MT0iMTg0IiB5MT0iMTU1IiB4Mj0iMTk2IiB5Mj0iMTMzIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPGxpbmUgeDE9IjE5NCIgeTE9IjE2MSIgeDI9IjIwNiIgeTI9IjEzOSIgc3Ryb2tlPSIjMGExMjE4IiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC41NSIvPgogIDxsaW5lIHgxPSIyMDQiIHkxPSIxNjciIHgyPSIyMTUiIHkyPSIxNDUiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNTUiLz4KICA8bGluZSB4MT0iMTQxIiB5MT0iMjgwIiB4Mj0iMTgzIiB5Mj0iMTUyIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxsaW5lIHgxPSIxNDkiIHkxPSIyODAiIHgyPSIxOTMiIHkyPSIxNTgiIHN0cm9rZT0iI0U4QTgzOCIgc3Ryb2tlLXdpZHRoPSIwLjk1IiBvcGFjaXR5PSIwLjc1Ii8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjI4MCIgeDI9IjIwMyIgeTI9IjE2NCIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjAuOTUiIG9wYWNpdHk9IjAuNzUiLz4KICA8bGluZSB4MT0iMTY4IiB5MT0iMjgwIiB4Mj0iMjExIiB5Mj0iMTY5IiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxwYXRoIGQ9Ik04MiA3OCBROTEgNzEgMTAwIDc4IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjYiLz4KICA8cGF0aCBkPSJNMTA0IDYyIFExMTUgNTQgMTI2IDYyIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjUiLz4KICA8cGF0aCBkPSJNMTk4IDcwIFEyMDcgNjMgMjE2IDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuNDUiLz4KICA8cGF0aCBkPSJNMjIyIDU2IFEyMjkgNTAgMjM2IDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuMzUiLz4KPC9zdmc+" alt="">
-  </div>
-  <div class="hero-content">
+  <div class="hero-inner">
+    <div class="hero-illustration" aria-hidden="true">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiB2aWV3Qm94PSIwIDAgMzQwIDI5NSIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDx0aXRsZT5Va3VsZWxlIElzdGFuYnVsPC90aXRsZT4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjI5NSIgcng9IjE2IiBmaWxsPSIjMEQxQjJBIi8+CiAgPHRleHQgeD0iMTcwIiB5PSIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiNFOEE4MzgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBvcGFjaXR5PSIwLjY1Ij5VS1VMRUxFIElTVEFOQlVMPC90ZXh0PgogIDxlbGxpcHNlIGN4PSIxNTUiIGN5PSIxOTUiIHJ4PSI2OCIgcnk9Ijg1IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPGVsbGlwc2UgY3g9IjE1NSIgY3k9IjE5NSIgcng9IjQ4IiByeT0iNjEiIGZpbGw9IiNENEI4N0EiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8Y2lyY2xlIGN4PSIxNTUiIGN5PSIxOTUiIHI9IjE4IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iMTk1IiByPSIxNCIgZmlsbD0iIzExMWUyYSIvPgogIDxyZWN0IHg9IjEzNiIgeT0iMjMwIiB3aWR0aD0iMzgiIGhlaWdodD0iOCIgcng9IjIuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxsaW5lIHgxPSIxNDEiIHkxPSIyMzIiIHgyPSIxNDEiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8bGluZSB4MT0iMTQ5IiB5MT0iMjMyIiB4Mj0iMTQ5IiB5Mj0iMjgwIiBzdHJva2U9IiM4QjczNTUiIHN0cm9rZS13aWR0aD0iMS4xIi8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjIzMiIgeDI9IjE2MCIgeTI9IjI4MCIgc3Ryb2tlPSIjOEI3MzU1IiBzdHJva2Utd2lkdGg9IjEuMSIvPgogIDxsaW5lIHgxPSIxNjgiIHkxPSIyMzIiIHgyPSIxNjgiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzYiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzQsMTM4KSByb3RhdGUoLTMyKSIvPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0MiIgcng9IjUiIGZpbGw9IiNCODk0NEEiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiw4Nikgcm90YXRlKC0zMikiLz4KICA8Y2lyY2xlIGN4PSIyMTgiIGN5PSI5NyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjMyIiBjeT0iOTAiIHI9IjQuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxjaXJjbGUgY3g9IjIyNiIgY3k9IjExNyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iMTEwIiByPSI0LjUiIGZpbGw9IiMwYTEyMTgiLz4KICA8bGluZSB4MT0iMTg0IiB5MT0iMTU1IiB4Mj0iMTk2IiB5Mj0iMTMzIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPGxpbmUgeDE9IjE5NCIgeTE9IjE2MSIgeDI9IjIwNiIgeTI9IjEzOSIgc3Ryb2tlPSIjMGExMjE4IiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC41NSIvPgogIDxsaW5lIHgxPSIyMDQiIHkxPSIxNjciIHgyPSIyMTUiIHkyPSIxNDUiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNTUiLz4KICA8bGluZSB4MT0iMTQxIiB5MT0iMjgwIiB4Mj0iMTgzIiB5Mj0iMTUyIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxsaW5lIHgxPSIxNDkiIHkxPSIyODAiIHgyPSIxOTMiIHkyPSIxNTgiIHN0cm9rZT0iI0U4QTgzOCIgc3Ryb2tlLXdpZHRoPSIwLjk1IiBvcGFjaXR5PSIwLjc1Ii8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjI4MCIgeDI9IjIwMyIgeTI9IjE2NCIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjAuOTUiIG9wYWNpdHk9IjAuNzUiLz4KICA8bGluZSB4MT0iMTY4IiB5MT0iMjgwIiB4Mj0iMjExIiB5Mj0iMTY5IiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxwYXRoIGQ9Ik04MiA3OCBROTEgNzEgMTAwIDc4IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjYiLz4KICA8cGF0aCBkPSJNMTA0IDYyIFExMTUgNTQgMTI2IDYyIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjUiLz4KICA8cGF0aCBkPSJNMTk4IDcwIFEyMDcgNjMgMjE2IDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuNDUiLz4KICA8cGF0aCBkPSJNMjIyIDU2IFEyMjkgNTAgMjM2IDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuMzUiLz4KPC9zdmc+" alt="">
+    </div>
+    <div class="hero-content">
     <div class="hero-eyebrow">İstanbul · Kadıköy · 2013'ten beri</div>
     <h1>Ukulele öğrenmek<br>bu kadar <em>kolay</em> olmamıştı.</h1>
     <p>Erkin Soylu önderliğinde, her seviyeye özel birebir ve grup atölyeleri. İstanbul'da ukulele kültürünü birlikte büyütüyoruz.</p>
@@ -281,6 +289,7 @@
       <a href="#iletisim" class="btn-primary">Atölyelere katıl</a>
       <a href="#videolar" class="btn-outline">Videoları izle</a>
     </div>
+  </div>
   </div>
 </section>
 
