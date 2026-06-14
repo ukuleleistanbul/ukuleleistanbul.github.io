@@ -35,8 +35,8 @@
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-logo img { height: 52px; width: auto; opacity: 1; transition: opacity 0.2s; }
     .nav-logo img:hover { opacity: 1; }
-    .nav-links { display: flex; gap: 2.2rem; justify-content: center; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 2rem; justify-content: center; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-light); }
     .nav-right { display: flex; align-items: center; gap: 0.5rem; }
     .lang-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; padding: 4px 9px; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
@@ -59,7 +59,8 @@
       background-size: cover; background-position: center;
       opacity: 0.18; z-index: 0;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 580px; }
+    .hero-inner { position: relative; z-index: 2; max-width: 1000px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .hero-content { max-width: 540px; flex-shrink: 0; }
     .hero-eyebrow {
       display: inline-block; color: var(--gold); font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.18em; text-transform: uppercase;
@@ -74,7 +75,7 @@
     .btn-primary:hover { background: var(--gold-light); }
     .btn-outline { border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.82); padding: 13px 30px; border-radius: 4px; text-decoration: none; font-weight: 400; font-size: 0.9rem; transition: border-color 0.2s, color 0.2s; display: inline-block; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .hero-illustration { position: absolute; right: 6%; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none; }
+    .hero-illustration { pointer-events: none; flex-shrink: 0; }
     .hero-illustration img { width: 320px; max-width: 36vw; opacity: 0.75; }
 
     /* SECTIONS */
@@ -232,24 +233,15 @@
     }
     .card:hover .card-more { gap: 0.5rem; }
 
+
     /* SSS */
     .faq-section { padding: 5.5rem 2.5rem; background: var(--navy); }
     .faq-inner { max-width: 1000px; margin: 0 auto; }
     .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .faq-item {
-      border: 0.5px solid rgba(255,255,255,0.1); border-radius: 10px;
-      padding: 1.4rem 1.6rem; cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      background: rgba(255,255,255,0.03);
-    }
+    .faq-item { border: 0.5px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.4rem 1.6rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: rgba(255,255,255,0.03); }
     .faq-item:hover { border-color: var(--gold); background: rgba(232,168,56,0.06); }
-    .faq-item h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; color: #fff; font-weight: 600;
-      line-height: 1.4; margin-bottom: 0; display: flex;
-      justify-content: space-between; align-items: flex-start; gap: 0.5rem;
-    }
-    .faq-item h4 .faq-arrow { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+    .faq-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: #fff; font-weight: 600; line-height: 1.4; display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+    .faq-arrow { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
     .faq-section .section-label { color: var(--gold); }
     .faq-section .section-title { color: #fff; }
     .faq-section .section-sub { color: rgba(255,255,255,0.55); }
@@ -263,7 +255,9 @@
       .nav-mobile-btn { display: block; }
       .nav-right { gap: 0.3rem; }
       .hero { padding: 4rem 1.5rem; min-height: 80vh; }
+      .hero-inner { flex-direction: column; }
       .hero-illustration { display: none; }
+      .faq-section { padding: 3.5rem 1.5rem; }
       .section, .gallery-section, .videos-section, .contact-section { padding: 3.5rem 1.5rem; }
       .about-section { padding: 3.5rem 1.5rem; }
       .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -303,6 +297,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-inner">
   <div class="hero-illustration" aria-hidden="true">
     <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiB2aWV3Qm94PSIwIDAgMzQwIDI5NSIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDx0aXRsZT5Va3VsZWxlIElzdGFuYnVsPC90aXRsZT4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjI5NSIgcng9IjE2IiBmaWxsPSIjMEQxQjJBIi8+CiAgPHRleHQgeD0iMTcwIiB5PSIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiNFOEE4MzgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBvcGFjaXR5PSIwLjY1Ij5VS1VMRUxFIElTVEFOQlVMPC90ZXh0PgogIDxlbGxpcHNlIGN4PSIxNTUiIGN5PSIxOTUiIHJ4PSI2OCIgcnk9Ijg1IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPGVsbGlwc2UgY3g9IjE1NSIgY3k9IjE5NSIgcng9IjQ4IiByeT0iNjEiIGZpbGw9IiNENEI4N0EiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8Y2lyY2xlIGN4PSIxNTUiIGN5PSIxOTUiIHI9IjE4IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iMTk1IiByPSIxNCIgZmlsbD0iIzExMWUyYSIvPgogIDxyZWN0IHg9IjEzNiIgeT0iMjMwIiB3aWR0aD0iMzgiIGhlaWdodD0iOCIgcng9IjIuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxsaW5lIHgxPSIxNDEiIHkxPSIyMzIiIHgyPSIxNDEiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8bGluZSB4MT0iMTQ5IiB5MT0iMjMyIiB4Mj0iMTQ5IiB5Mj0iMjgwIiBzdHJva2U9IiM4QjczNTUiIHN0cm9rZS13aWR0aD0iMS4xIi8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjIzMiIgeDI9IjE2MCIgeTI9IjI4MCIgc3Ryb2tlPSIjOEI3MzU1IiBzdHJva2Utd2lkdGg9IjEuMSIvPgogIDxsaW5lIHgxPSIxNjgiIHkxPSIyMzIiIHgyPSIxNjgiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzYiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzQsMTM4KSByb3RhdGUoLTMyKSIvPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0MiIgcng9IjUiIGZpbGw9IiNCODk0NEEiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiw4Nikgcm90YXRlKC0zMikiLz4KICA8Y2lyY2xlIGN4PSIyMTgiIGN5PSI5NyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjMyIiBjeT0iOTAiIHI9IjQuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxjaXJjbGUgY3g9IjIyNiIgY3k9IjExNyIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CiAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iMTEwIiByPSI0LjUiIGZpbGw9IiMwYTEyMTgiLz4KICA8bGluZSB4MT0iMTg0IiB5MT0iMTU1IiB4Mj0iMTk2IiB5Mj0iMTMzIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPGxpbmUgeDE9IjE5NCIgeTE9IjE2MSIgeDI9IjIwNiIgeTI9IjEzOSIgc3Ryb2tlPSIjMGExMjE4IiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC41NSIvPgogIDxsaW5lIHgxPSIyMDQiIHkxPSIxNjciIHgyPSIyMTUiIHkyPSIxNDUiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNTUiLz4KICA8bGluZSB4MT0iMTQxIiB5MT0iMjgwIiB4Mj0iMTgzIiB5Mj0iMTUyIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxsaW5lIHgxPSIxNDkiIHkxPSIyODAiIHgyPSIxOTMiIHkyPSIxNTgiIHN0cm9rZT0iI0U4QTgzOCIgc3Ryb2tlLXdpZHRoPSIwLjk1IiBvcGFjaXR5PSIwLjc1Ii8+CiAgPGxpbmUgeDE9IjE2MCIgeTE9IjI4MCIgeDI9IjIwMyIgeTI9IjE2NCIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjAuOTUiIG9wYWNpdHk9IjAuNzUiLz4KICA8bGluZSB4MT0iMTY4IiB5MT0iMjgwIiB4Mj0iMjExIiB5Mj0iMTY5IiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxwYXRoIGQ9Ik04MiA3OCBROTEgNzEgMTAwIDc4IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjYiLz4KICA8cGF0aCBkPSJNMTA0IDYyIFExMTUgNTQgMTI2IDYyIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjUiLz4KICA8cGF0aCBkPSJNMTk4IDcwIFEyMDcgNjMgMjE2IDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuNDUiLz4KICA8cGF0aCBkPSJNMjIyIDU2IFEyMjkgNTAgMjM2IDU2IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuMzUiLz4KPC9zdmc+" alt="">
   </div>
@@ -314,6 +309,7 @@
       <a href="#iletisim" class="btn-primary">Atölyelere katıl</a>
       <a href="#videolar" class="btn-outline">Videoları izle</a>
     </div>
+  </div>
   </div>
 </section>
 
@@ -444,8 +440,311 @@
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') { closeModal(); closeFaq(); }
   });
+</script>
+
+<script>
+// ===== SSS VERİLERİ =====
+var faqData = [
+  { tr: 'Ukulele nedir?', en: 'What is a ukulele?',
+    tr_b: 'Ukulele, Hawaii kökenli dört telli küçük bir telli çalgıdır. 19. yüzyılda Portekizlilerin Machete adlı enstrümanından evrimleşmiştir. Naylon ya da florokarbon teller ile donatılmış gövdesi, gitara kıyasla çok daha yumuşak ve sıcak bir ses üretir. Bugün dünya genelinde milyonlarca kişi tarafından sevilen, taşıması kolay ve öğrenmesi nispeten kolay bir enstrümandır.',
+    en_b: 'The ukulele is a small, four-stringed instrument of Hawaiian origin. It evolved in the 19th century from the Portuguese Machete. It produces a softer, warmer sound than a guitar. Today it is loved by millions worldwide — easy to carry and relatively easy to learn.' },
+  { tr: 'Kaç çeşit ukulele vardır?', en: 'How many types of ukulele are there?',
+    tr_b: 'Dört ana boyut vardır: Soprano (en küçük, en geleneksel ses), Concert (biraz daha büyük ve dolgun ses), Tenor (daha geniş perdeler, güçlü ses), Baritone (gitara en yakın ses, farklı akort). Yeni başlayanlar için Soprano ya da Concert boyutu önerilir.',
+    en_b: 'There are four main sizes: Soprano (smallest, most traditional), Concert (slightly larger and fuller), Tenor (wider frets, powerful sound), and Baritone (closest to guitar). Soprano or Concert is recommended for beginners.' },
+  { tr: 'Ukulele öğrenmesi zor mu?', en: 'Is ukulele hard to learn?',
+    tr_b: 'Hayır — ukulele başlangıç seviyesindeki enstrümanlar arasında en kolay öğrenilenlerden biridir. Yalnızca dört tel ve yumuşak teller, parmak acısını minimuma indirir. Birkaç temel akor ile çok sayıda parça çalınabilir.',
+    en_b: 'No — the ukulele is one of the easiest instruments for beginners. Only four strings and soft strings minimize finger pain. With just a few basic chords you can play a large number of songs.' },
+  { tr: 'Hiç müzik geçmişim olmadan öğrenebilir miyim?', en: 'Can I learn without any music background?',
+    tr_b: 'Kesinlikle evet. Ukulele, müzik geçmişi olmayan kişiler için ideal bir başlangıç noktasıdır. Nota okuma bilgisi zorunlu değildir; akor diyagramları ve ritim çalışmaları ile hızla ilerleme kaydedebilirsiniz.',
+    en_b: 'Absolutely yes. The ukulele is an ideal starting point for people with no music background. Reading sheet music is not required; you can progress quickly using chord diagrams and rhythm exercises.' },
+  { tr: 'Hangi yaşta başlamalıyım?', en: 'What age should I start?',
+    tr_b: 'Ukulele öğrenmek için bir yaş sınırı yoktur. Çocuklar için 6-7 yaş uygun bir başlangıç olabilir. Yetişkinler ve yaşlılar da rahatlıkla öğrenebilir. Önemli olan yaş değil, merak ve istektir.',
+    en_b: 'There is no age limit. For children, age 6-7 can be a good start. Adults and seniors can learn just as well. What matters is curiosity and desire, not age.' },
+  { tr: 'İlk ukulelemi nasıl seçmeliyim?', en: 'How should I choose my first ukulele?',
+    tr_b: 'İlk ukulele için Soprano ya da Concert boyutu önerilir. Orta segment bir enstrüman kaliteli bir başlangıç sağlar. Kala, Mahalo, Flight gibi markalar güvenilirdir. Ukulele Istanbul olarak satın alma sürecinde birebir rehberlik ediyoruz.',
+    en_b: 'Soprano or Concert size is recommended for the first ukulele. A mid-range instrument provides a quality start. Brands like Kala, Mahalo and Flight are reliable. At Ukulele Istanbul we guide participants one-on-one through the purchasing process.' },
+  { tr: 'Ukulele ne kadar sürede öğrenilir?', en: 'How long does it take to learn ukulele?',
+    tr_b: 'İlk birkaç akor ve basit parçalar için 2-4 hafta yeterlidir. Orta seviye için 6 ay-1 yıl sürekli pratik önerilir. Günde 15-20 dakikalık düzenli pratik, haftalık yoğun çalışmadan çok daha etkilidir.',
+    en_b: '2-4 weeks is enough for the first chords and simple pieces. 6 months to 1 year for intermediate level. 15-20 minutes of daily practice is far more effective than occasional intensive sessions.' },
+  { tr: 'Ukulele mi gitar mı, hangisi daha kolay?', en: 'Ukulele or guitar — which is easier?',
+    tr_b: 'Ukulele genellikle gitardan daha kolay kabul edilir: daha az tel, daha küçük gövde, daha yumuşak teller. Gitarı bilen birinin ukuleleye geçişi de oldukça hızlı olur.',
+    en_b: 'The ukulele is generally considered easier than guitar: fewer strings, smaller body, softer strings. Someone who plays guitar can also switch to ukulele very quickly.' },
+  { tr: 'Akort nasıl yapılır?', en: 'How do I tune a ukulele?',
+    tr_b: 'Standart ukulele akordu G-C-E-A'dır. Akort için telefon uygulamaları (GuitarTuna, Fender Tune) ya da clip-on akort aleti kullanılabilir. Baritone ise D-G-B-E kullanır.',
+    en_b: 'Standard tuning is G-C-E-A. Use phone apps (GuitarTuna, Fender Tune) or a clip-on tuner. Baritone ukuleles use D-G-B-E.' },
+  { tr: 'Ukulele teli nasıl değiştirilir?', en: 'How do I change ukulele strings?',
+    tr_b: 'Köprüdeki düğümü çözerek eski teli çıkarın. Yeni teli delikten geçirip düğüm yapın, burguya takın ve akort edin. İlk birkaç gün teller uzayacağı için sık akort gerekebilir.',
+    en_b: 'Untie the knot at the bridge to remove the old string. Thread the new string through the hole, tie a knot, attach to the peg and tune. Strings may need frequent tuning the first few days as they stretch.' },
+  { tr: 'Kaç tel vardır, ne işe yarar?', en: 'How many strings and what do they do?',
+    tr_b: 'Ukulelede 4 tel vardır. Standart akort G-C-E-A'dır. G teli "reentrant" düzendedir: en kalın sesli tel en altta değil en üsttedir. Bu özellik ukuleleye kendine özgü neşeli ve tiz sesini verir.',
+    en_b: 'A ukulele has 4 strings tuned G-C-E-A. The G string uses reentrant tuning — the lowest-pitched string is at the top, not the bottom. This gives the ukulele its distinctive cheerful, bright sound.' },
+  { tr: 'Ukulele için parmak nasıl sertleştirilir?', en: 'How do I toughen my fingertips?',
+    tr_b: 'Ukulele nylon veya florokarbon tel kullandığı için parmak ucunu çok daha az zorlar. Düzenli pratikle 2-3 hafta içinde hassasiyet büyük ölçüde geçer.',
+    en_b: 'Because ukulele uses nylon or fluorocarbon strings it is much gentler on fingertips than guitar. With regular practice any sensitivity largely passes within 2-3 weeks.' },
+  { tr: 'Akor diyagramları nasıl okunur?', en: 'How do I read chord diagrams?',
+    tr_b: 'Akor diyagramları ukulele sapını dikey gösteren ızgara çizimleridir. Yatay çizgiler perdeleri, dikey çizgiler telleri temsil eder. Noktalar parmak pozisyonlarını, X çalınmayan teli, O ise açık çalınan teli gösterir.',
+    en_b: 'Chord diagrams are grid drawings showing the ukulele neck vertically. Horizontal lines = frets, vertical lines = strings. Dots show finger positions. X = string not played, O = open string.' },
+  { tr: 'Strumming (vurma) teknikleri nelerdir?', en: 'What are strumming techniques?',
+    tr_b: 'Temel strumming teknikleri: Down strum (aşağı), Up strum (yukarı) ve kombinasyonları. Başlangıç için D-DU-UDU ritmi en yaygın kalıptır. Ritim hissi geliştikçe syncopation gibi ileri teknikler öğrenilebilir.',
+    en_b: 'Basic techniques: Down strum, Up strum, and combinations. The D-DU-UDU pattern is the most common starting pattern. As your rhythm develops, advanced techniques like syncopation can be learned.' },
+  { tr: 'Fingerpicking nedir, nasıl yapılır?', en: 'What is fingerpicking and how is it done?',
+    tr_b: 'Fingerpicking, tellerin parmak uçlarıyla tek tek ya da belirli bir örüntüyle çalınması tekniğidir. Başlangıç olarak p-i-m-a (baş-işaret-orta-yüzük) parmak atamasını öğrenmek faydalıdır. Erkin Soylu bu tekniği klasik gitar eğitiminden uyarlamaktadır.',
+    en_b: 'Fingerpicking means playing strings individually or in patterns with fingertips. Learning p-i-m-a (thumb-index-middle-ring) finger assignment is a helpful starting point. Erkin Soylu adapts this from classical guitar training.' },
+  { tr: 'Soprano, Concert, Tenor farkı nedir?', en: 'What is the difference between Soprano, Concert and Tenor?',
+    tr_b: 'Soprano: 53 cm, en geleneksel ses, en taşınabilir. Concert: 58 cm, biraz daha derin ses, geniş perdeler. Tenor: 66 cm, en güçlü ses, profesyonellerce tercih edilir. Büyük elliler için Tenor önerilir.',
+    en_b: 'Soprano: 53 cm, most traditional sound, most portable. Concert: 58 cm, deeper sound, wider frets. Tenor: 66 cm, most powerful, preferred by professionals. Tenor is recommended for those with large hands.' },
+  { tr: 'Ukulele bakımı nasıl yapılır?', en: 'How do I maintain my ukulele?',
+    tr_b: 'Kullanımdan sonra nemli bezle gövdeyi silin. Aşırı sıcak, soğuk ve nemden koruyun (ideal nem: %45-55). Kılıfında saklayın. Telleri her 3-6 ayda bir değiştirin.',
+    en_b: 'Wipe the body with a damp cloth after use. Protect from extreme heat, cold and humidity (ideal: 45-55% RH). Store in a case. Change strings every 3-6 months.' },
+  { tr: 'Hangi müzik stilleri çalınabilir?', en: 'What music styles can be played?',
+    tr_b: 'Ukulele son derece çok yönlüdür: Hawaiian, folk, pop, caz, klasik, Latin, reggae, blues. Türkçe pop ve halk müziği de ukuleleye çok iyi uyarlanabilir.',
+    en_b: 'The ukulele is extremely versatile: Hawaiian, folk, pop, jazz, classical, Latin, reggae, blues. Turkish pop and folk music also adapts very well to ukulele.' },
+  { tr: 'Ukulele fiyatları ne kadar olmalı?', en: 'How much should a ukulele cost?',
+    tr_b: 'Başlangıç: 1.500-3.000 TL. Orta seviye: 3.000-8.000 TL. İleri seviye: 8.000 TL ve üzeri. Çok ucuz enstrümanlar akort tutmaz. İlk enstrüman için orta segment daha iyi bir yatırımdır.',
+    en_b: 'Beginner: approx. $50-100. Intermediate: $100-300. Advanced: $300+. Very cheap instruments rarely hold tune. Mid-range is always a better investment for your first ukulele.' },
+  { tr: 'Nereden iyi ukulele alabilirim?', en: 'Where can I buy a good ukulele?',
+    tr_b: 'İstanbul'da Kadıköy, Bağcılar ve Taksim çevresindeki müzik marketleri iyi seçenekler sunar. Thomann gibi online platformlar da kullanılabilir; ancak enstrümanı fiziksel olarak denemek her zaman daha sağlıklıdır. Ukulele Istanbul olarak doğru enstrümanı seçmede bizzat eşlik ediyoruz.',
+    en_b: 'Music stores around Kadıköy, Bağcılar and Taksim in Istanbul offer good options. Online platforms like Thomann can also work, but physically trying the instrument is always better. At Ukulele Istanbul we personally accompany you in choosing the right instrument.' }
+];
+
+var currentLang = 'tr';
+
+function renderFaq() {
+  var grid = document.getElementById('faq-grid');
+  grid.innerHTML = '';
+  faqData.forEach(function(q, i) {
+    var item = document.createElement('div');
+    item.className = 'faq-item';
+    item.onclick = function() { openFaq(i); };
+    item.innerHTML = '<h4><span>' + q[currentLang] + '</span><span class="faq-arrow">→</span></h4>';
+    grid.appendChild(item);
+  });
+}
+
+function openFaq(i) {
+  var q = faqData[i];
+  document.getElementById('faq-title').textContent = q[currentLang];
+  document.getElementById('faq-body').innerHTML = '<p>' + q[currentLang + '_b'] + '</p>';
+  document.getElementById('faq-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeFaq() {
+  document.getElementById('faq-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== DİL DEĞİŞTİRİCİ =====
+var translations = {
+  tr: {
+    // NAV
+    'nav-atolyeler': 'Atölyeler', 'nav-hakkimizda': 'Hakkımızda', 'nav-galeri': 'Galeri',
+    'nav-videolar': 'Videolar', 'nav-sss': 'SSS', 'nav-iletisim': 'İletişim',
+    // HERO
+    'hero-eyebrow': 'İstanbul · Kadıköy · 2013'ten beri',
+    'hero-h1': 'Ukulele öğrenmek<br>bu kadar <em>kolay</em> olmamıştı.',
+    'hero-p': 'Erkin Soylu önderliğinde, her seviyeye özel birebir ve grup atölyeleri. İstanbul'da ukulele kültürünü birlikte büyütüyoruz.',
+    'hero-btn1': 'Atölyelere katıl', 'hero-btn2': 'Videoları izle',
+    // ATÖLYEler
+    'atolye-label': 'Atölyeler', 'atolye-title': 'Her seviye için bir format var',
+    'atolye-sub': 'Soprano'dan tenora, başlangıçtan ileri seviyeye — kendi hızında, kendi müziğinle öğren.',
+    'card-birebir-h': 'Birebir Atölye', 'card-birebir-p': 'Sana özel bir yol haritası. Kendi tempon, kendi seçtiğin parçalar. Doğrudan Erkin Soylu ile çalışma fırsatı.',
+    'card-grup-h': 'Grup Atölyesi', 'card-grup-p': 'Birlikte çalmak farklı bir enerji yaratır. Aynı seviyedeki katılımcılarla eğlenceli ve sosyal bir ortam.',
+    'card-workshop-h': 'Workshop', 'card-workshop-p': 'Belirli teknikler ya da stiller üzerine derinlemesine çalışmak isteyenler için özel odaklı oturumlar.',
+    'card-kulup-h': 'Ukulele Kulübü', 'card-kulup-p': 'Düzenli buluşmalar, birlikte çalma seansları. İstanbul'un ukulele topluluğuna katıl.',
+    'card-more': 'Daha fazla →',
+    // MODAL
+    'modal-cta-span': 'Bilgi almak için ulaşın', 'modal-cta-btn': 'İletişime geç',
+    // ABOUT
+    'about-label': 'Hakkımızda', 'about-title': 'Erkin Soylu kimdir?',
+    'about-p1': 'Müjdat Gezen Konservatuvarı'nda burslu klasik gitar eğitimi alan Erkin Soylu, 2005'ten bu yana çeşitli kurumlarda eğitmenlik yapmaktadır.',
+    'about-p2': '2009'dan beri cavaquinho, 2013'ten beri ukulele alanında rehberlik eden Erkin Soylu, klasik gitar tekniğini ukulele'ye uyarlayan özgün bir metodoloji geliştirmiştir.',
+    'about-p3': 'Jorge Cardoso ve Robert Barto gibi isimlerle çalışma fırsatı bulan Soylu, Türkiye'de ukulele kültürünü yaygınlaştırmayı hedeflemektedir.',
+    'stat1-num': '2013', 'stat1-label': 'yılından beri
+aktif platform',
+    'stat2-num': '10+', 'stat2-label': 'yıl ukulele
+eğitmenliği',
+    'stat3-num': '4', 'stat3-label': 'farklı atölye
+formatı',
+    // GALERİ
+    'galeri-label': 'Galeri', 'galeri-title': 'Atölyelerden kareler',
+    'galeri-sub': 'Moda sahili buluşmaları, grup atölyeleri ve workshoplardan anlar.',
+    // VİDEOLAR
+    'video-label': 'YouTube', 'video-title': 'Son videolardan seçmeler',
+    'video-sub': 'Ukulele uyarlamaları, atölye içerikleri ve etkinlik videoları için kanalımızı takip edin.',
+    'member-title': 'Üyelere Özel İçerikler', 'member-p': 'YouTube kanalıma üye olarak kapsamlı atölye içeriklerine erişebilirsin.',
+    'member-btn': 'Üye ol', 'channel-p': 'Tüm videoları YouTube kanalımızda izleyin', 'channel-btn': 'Kanala git',
+    // SSS
+    'sss-label': 'Sık Sorulan Sorular', 'sss-title': 'Ukulele hakkında merak ettikleriniz',
+    'sss-sub': 'Aşağıdaki sorulara tıklayarak detaylı yanıtlara ulaşabilirsiniz.',
+    'faq-cta-label': 'Daha fazla soru için ulaşın', 'faq-cta-btn': 'İletişime geç',
+    // İLETİŞİM
+    'iletisim-label': 'İletişim', 'iletisim-title': 'Atölyelere katılmak için
+hemen ulaşın',
+    'iletisim-sub': 'Kadıköy Yeldeğirmeni'nde, sorularınız için her zaman buradayız.',
+    'iletisim-tel-label': 'Erkin Soylu', 'iletisim-mail-label': 'E-posta', 'iletisim-konum-label': 'Konum',
+    'quote': '"Ukulele, dört teli ile dünyayı müziğe dönüştüren eşsiz bir enstrümandır."',
+    'hint-label': 'Ukulele seçiminde rehberlik',
+    'hint-text': 'Katılımcılarımızın ukulele satın alma sürecinde yardımcı oluyor, birebir yol gösteriyoruz.',
+    // FOOTER
+    'footer-text': '© 2025 Ukulele İstanbul · Erkin Soylu · Kadıköy, İstanbul',
+  },
+  en: {
+    'nav-atolyeler': 'Workshops', 'nav-hakkimizda': 'About', 'nav-galeri': 'Gallery',
+    'nav-videolar': 'Videos', 'nav-sss': 'FAQ', 'nav-iletisim': 'Contact',
+    'hero-eyebrow': 'Istanbul · Kadıköy · Since 2013',
+    'hero-h1': 'Learning ukulele has never been this <em>easy</em>.',
+    'hero-p': 'Personalized one-on-one and group workshops led by Erkin Soylu. Growing ukulele culture together in Istanbul.',
+    'hero-btn1': 'Join a Workshop', 'hero-btn2': 'Watch Videos',
+    'atolye-label': 'Workshops', 'atolye-title': 'A format for every level',
+    'atolye-sub': 'From soprano to tenor, beginner to advanced — learn at your own pace, with your own music.',
+    'card-birebir-h': 'One-on-One Workshop', 'card-birebir-p': 'A roadmap tailored to you. Your tempo, your chosen pieces. The opportunity to work directly with Erkin Soylu.',
+    'card-grup-h': 'Group Workshop', 'card-grup-p': 'Playing together creates a different energy. A fun and social environment with participants at the same level.',
+    'card-workshop-h': 'Workshop', 'card-workshop-p': 'Focused sessions for those who want to go deep on specific techniques or styles.',
+    'card-kulup-h': 'Ukulele Club', 'card-kulup-p': 'Regular meetups and jam sessions. Join Istanbul's ukulele community.',
+    'card-more': 'Learn more →',
+    'modal-cta-span': 'Get in touch for more info', 'modal-cta-btn': 'Contact us',
+    'about-label': 'About', 'about-title': 'Who is Erkin Soylu?',
+    'about-p1': 'Erkin Soylu studied classical guitar on scholarship at the Müjdat Gezen Conservatory and has been teaching at various institutions since 2005.',
+    'about-p2': 'Guiding students in cavaquinho since 2009 and ukulele since 2013, Erkin Soylu has developed a unique methodology adapting classical guitar technique to the ukulele.',
+    'about-p3': 'Having had the opportunity to work with names like Jorge Cardoso and Robert Barto, Soylu aims to popularize ukulele culture in Turkey.',
+    'stat1-num': '2013', 'stat1-label': 'active platform
+since',
+    'stat2-num': '10+', 'stat2-label': 'years of ukulele
+teaching',
+    'stat3-num': '4', 'stat3-label': 'different workshop
+formats',
+    'galeri-label': 'Gallery', 'galeri-title': 'Moments from workshops',
+    'galeri-sub': 'Moda seaside meetups, group workshops and workshop highlights.',
+    'video-label': 'YouTube', 'video-title': 'Picks from recent videos',
+    'video-sub': 'Follow our channel for ukulele arrangements, workshop content and event videos.',
+    'member-title': 'Members-Only Content', 'member-p': 'Join the YouTube channel to access in-depth workshop content.',
+    'member-btn': 'Become a member', 'channel-p': 'Watch all videos on our YouTube channel', 'channel-btn': 'Go to channel',
+    'sss-label': 'Frequently Asked Questions', 'sss-title': 'Everything you wonder about ukulele',
+    'sss-sub': 'Click on any question below to read the detailed answer.',
+    'faq-cta-label': 'Reach out for more questions', 'faq-cta-btn': 'Get in touch',
+    'iletisim-label': 'Contact', 'iletisim-title': 'Get in touch
+to join our workshops',
+    'iletisim-sub': 'Based in Kadıköy Yeldeğirmeni, Istanbul. Always here for your questions.',
+    'iletisim-tel-label': 'Erkin Soylu', 'iletisim-mail-label': 'Email', 'iletisim-konum-label': 'Location',
+    'quote': '"Ukulele is a unique instrument that transforms the world into music with just four strings."',
+    'hint-label': 'Guidance on choosing a ukulele',
+    'hint-text': 'We personally guide our participants through the ukulele purchasing process and help them find the right instrument.',
+    'footer-text': '© 2025 Ukulele Istanbul · Erkin Soylu · Kadıköy, Istanbul',
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  var t = translations[lang];
+  document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // Nav linkleri
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var navKeys = ['nav-atolyeler','nav-hakkimizda','nav-galeri','nav-videolar','nav-sss','nav-iletisim'];
+  navLinks.forEach(function(a, i) { if (navKeys[i]) a.textContent = t[navKeys[i]]; });
+
+  // Hero
+  document.querySelector('.hero-eyebrow').textContent = t['hero-eyebrow'];
+  document.querySelector('.hero h1').innerHTML = t['hero-h1'];
+  document.querySelector('.hero p').textContent = t['hero-p'];
+  var heroBtns = document.querySelectorAll('.hero-cta a');
+  if (heroBtns[0]) heroBtns[0].textContent = t['hero-btn1'];
+  if (heroBtns[1]) heroBtns[1].textContent = t['hero-btn2'];
+
+  // Atölyeler
+  setText('.section#atolyeler .section-label', t['atolye-label']);
+  setText('.section#atolyeler .section-title', t['atolye-title']);
+  setText('.section#atolyeler .section-sub', t['atolye-sub']);
+  var cards = document.querySelectorAll('.card');
+  var cardKeys = ['birebir','grup','workshop','kulup'];
+  cards.forEach(function(card, i) {
+    if (!cardKeys[i]) return;
+    var h3 = card.querySelector('h3'); if (h3) h3.textContent = t['card-'+cardKeys[i]+'-h'];
+    var p = card.querySelector('p');   if (p)  p.textContent  = t['card-'+cardKeys[i]+'-p'];
+    var more = card.querySelector('.card-more'); if (more) more.textContent = t['card-more'];
+  });
+
+  // Modal CTA
+  var mcta = document.querySelector('#modal-overlay .modal-cta span'); if (mcta) mcta.textContent = t['modal-cta-span'];
+  var mctabtn = document.querySelector('#modal-overlay .modal-cta .btn-primary'); if (mctabtn) mctabtn.textContent = t['modal-cta-btn'];
+
+  // Modal içerikleri de dil değiştirince güncellenmeli
+  if (typeof modals !== 'undefined' && lang === 'en') {
+    modals.birebir.title = t['card-birebir-h'];
+    modals.birebir.body = '<p>' + t['card-birebir-p'] + '</p>';
+    modals.grup.title = t['card-grup-h'];
+    modals.grup.body = '<p>' + t['card-grup-p'] + '</p>';
+    modals.workshop.title = t['card-workshop-h'];
+    modals.workshop.body = '<p>' + t['card-workshop-p'] + '</p>';
+    modals.kulup.title = t['card-kulup-h'];
+    modals.kulup.body = '<p>' + t['card-kulup-p'] + '</p>';
+  }
+
+  // About
+  setText('.about-text .section-label', t['about-label']);
+  setText('.about-text .section-title', t['about-title']);
+  var aboutPs = document.querySelectorAll('.about-text p');
+  if (aboutPs[0]) aboutPs[0].textContent = t['about-p1'];
+  if (aboutPs[1]) aboutPs[1].textContent = t['about-p2'];
+  if (aboutPs[2]) aboutPs[2].textContent = t['about-p3'];
+  var statLabels = document.querySelectorAll('.stat-label');
+  if (statLabels[0]) statLabels[0].innerHTML = t['stat1-label'].replace('\n','<br>');
+  if (statLabels[1]) statLabels[1].innerHTML = t['stat2-label'].replace('\n','<br>');
+  if (statLabels[2]) statLabels[2].innerHTML = t['stat3-label'].replace('\n','<br>');
+
+  // Galeri
+  setText('.gallery-section .section-label', t['galeri-label']);
+  setText('.gallery-section .section-title', t['galeri-title']);
+  setText('.gallery-section .section-sub', t['galeri-sub']);
+
+  // Videolar
+  setText('.videos-section .section-label', t['video-label']);
+  setText('.videos-section .section-title', t['video-title']);
+  setText('.videos-section .section-sub', t['video-sub']);
+
+  // SSS
+  var sssLabel = document.getElementById('sss-label'); if (sssLabel) sssLabel.textContent = t['sss-label'];
+  var sssTitle = document.getElementById('sss-title'); if (sssTitle) sssTitle.textContent = t['sss-title'];
+  var sssSub = document.getElementById('sss-sub'); if (sssSub) sssSub.textContent = t['sss-sub'];
+  var faqCtaLabel = document.getElementById('faq-cta-label'); if (faqCtaLabel) faqCtaLabel.textContent = t['faq-cta-label'];
+  var faqCtaBtn = document.getElementById('faq-cta-btn'); if (faqCtaBtn) faqCtaBtn.textContent = t['faq-cta-btn'];
+  renderFaq();
+
+  // İletişim
+  setText('.contact-section .section-label', t['iletisim-label']);
+  var iletisimTitle = document.querySelector('.contact-section .section-title');
+  if (iletisimTitle) iletisimTitle.innerHTML = t['iletisim-title'].replace('\n','<br>');
+  setText('.contact-section .section-sub', t['iletisim-sub']);
+  var contactLabels = document.querySelectorAll('.contact-row span');
+  if (contactLabels[0]) contactLabels[0].textContent = t['iletisim-tel-label'];
+  if (contactLabels[1]) contactLabels[1].textContent = t['iletisim-mail-label'];
+  if (contactLabels[2]) contactLabels[2].textContent = t['iletisim-konum-label'];
+  var quoteEl = document.querySelector('.quote-box blockquote'); if (quoteEl) quoteEl.textContent = t['quote'];
+  setText('.quote-box .hint-label', t['hint-label']);
+  setText('.quote-box .hint-text', t['hint-text']);
+
+  // Footer
+  var footer = document.querySelector('footer'); 
+  if (footer) {
+    var img = footer.querySelector('img');
+    footer.innerHTML = '';
+    if (img) footer.appendChild(img);
+    footer.insertAdjacentHTML('beforeend', t['footer-text'].replace('Ukulele İstanbul','<span>Ukulele İstanbul</span>').replace('Ukulele Istanbul','<span>Ukulele Istanbul</span>'));
+  }
+}
+
+function setText(sel, txt) {
+  var el = document.querySelector(sel);
+  if (el) el.textContent = txt;
+}
+
+// Sayfa yüklenince SSS'i oluştur
+document.addEventListener('DOMContentLoaded', function() { renderFaq(); });
+// DOM zaten hazırsa direkt çağır
+if (document.readyState !== 'loading') { renderFaq(); }
 </script>
 
 <!-- HAKKIMIZDA -->
@@ -544,8 +843,8 @@
         var count = 0;
         entries.forEach(function(entry) {
           if (count >= 1) return;
-          var videoId = entry.querySelector('videoId') ? entry.querySelector('videoId').textContent
-            : entry.querySelector('id').textContent.replace('yt:video:', '');
+          var idEl = entry.querySelector('videoId');
+          var videoId = idEl ? idEl.textContent : entry.querySelector('id').textContent.replace('yt:video:', '').trim();
           var title = entry.querySelector('title').textContent;
 
           var card = document.createElement('div');
@@ -606,44 +905,22 @@
 <!-- SSS -->
 <div class="faq-section" id="sss">
   <div class="faq-inner">
-    <div class="section-label" data-tr="Sık Sorulan Sorular" data-en="FAQ">Sık Sorulan Sorular</div>
-    <div class="section-title" data-tr="Ukulele hakkında merak ettikleriniz" data-en="Everything you wonder about ukulele">Ukulele hakkında merak ettikleriniz</div>
-    <p class="section-sub" data-tr="Aşağıdaki sorulara tıklayarak detaylı yanıtlara ulaşabilirsiniz." data-en="Click on any question below to read the detailed answer.">Aşağıdaki sorulara tıklayarak detaylı yanıtlara ulaşabilirsiniz.</p>
-    <div class="faq-grid">
-      <div class="faq-item" onclick="openFaq('q1')"><h4><span data-tr="Ukulele nedir?" data-en="What is a ukulele?">Ukulele nedir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q2')"><h4><span data-tr="Kaç çeşit ukulele vardır?" data-en="How many types of ukulele are there?">Kaç çeşit ukulele vardır?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q3')"><h4><span data-tr="Ukulele öğrenmesi zor mu?" data-en="Is ukulele hard to learn?">Ukulele öğrenmesi zor mu?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q4')"><h4><span data-tr="Hiç müzik geçmişim olmadan öğrenebilir miyim?" data-en="Can I learn without any music background?">Hiç müzik geçmişim olmadan öğrenebilir miyim?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q5')"><h4><span data-tr="Hangi yaşta başlamalıyım?" data-en="What age should I start?">Hangi yaşta başlamalıyım?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q6')"><h4><span data-tr="İlk ukulelemi nasıl seçmeliyim?" data-en="How should I choose my first ukulele?">İlk ukulelemi nasıl seçmeliyim?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q7')"><h4><span data-tr="Ukulele ne kadar sürede öğrenilir?" data-en="How long does it take to learn ukulele?">Ukulele ne kadar sürede öğrenilir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q8')"><h4><span data-tr="Ukulele mi gitar mı, hangisi daha kolay?" data-en="Ukulele or guitar — which is easier?">Ukulele mi gitar mı, hangisi daha kolay?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q9')"><h4><span data-tr="Akort nasıl yapılır?" data-en="How do I tune a ukulele?">Akort nasıl yapılır?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q10')"><h4><span data-tr="Ukulele teli nasıl değiştirilir?" data-en="How do I change ukulele strings?">Ukulele teli nasıl değiştirilir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q11')"><h4><span data-tr="Kaç tel vardır, ne işe yarar?" data-en="How many strings does it have and what do they do?">Kaç tel vardır, ne işe yarar?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q12')"><h4><span data-tr="Ukulele için parmak nasıl sertleştirilir?" data-en="How do I toughen my fingertips for ukulele?">Ukulele için parmak nasıl sertleştirilir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q13')"><h4><span data-tr="Akor diyagramları nasıl okunur?" data-en="How do I read chord diagrams?">Akor diyagramları nasıl okunur?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q14')"><h4><span data-tr="Strumming (vurma) teknikleri nelerdir?" data-en="What are strumming techniques?">Strumming (vurma) teknikleri nelerdir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q15')"><h4><span data-tr="Fingerpicking nedir, nasıl yapılır?" data-en="What is fingerpicking and how is it done?">Fingerpicking nedir, nasıl yapılır?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q16')"><h4><span data-tr="Soprano, Concert, Tenor farkı nedir?" data-en="What is the difference between Soprano, Concert and Tenor?">Soprano, Concert, Tenor farkı nedir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q17')"><h4><span data-tr="Ukulele bakımı nasıl yapılır?" data-en="How do I maintain my ukulele?">Ukulele bakımı nasıl yapılır?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q18')"><h4><span data-tr="Hangi müzik stilleri çalınabilir?" data-en="What music styles can be played on ukulele?">Hangi müzik stilleri çalınabilir?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q19')"><h4><span data-tr="Ukulele fiyatları ne kadar olmalı?" data-en="How much should a ukulele cost?">Ukulele fiyatları ne kadar olmalı?</span><span class="faq-arrow">→</span></h4></div>
-      <div class="faq-item" onclick="openFaq('q20')"><h4><span data-tr="Nereden iyi ukulele alabilirim?" data-en="Where can I buy a good ukulele?">Nereden iyi ukulele alabilirim?</span><span class="faq-arrow">→</span></h4></div>
-    </div>
+    <div class="section-label" id="sss-label">Sık Sorulan Sorular</div>
+    <div class="section-title" id="sss-title">Ukulele hakkında merak ettikleriniz</div>
+    <p class="section-sub" id="sss-sub">Aşağıdaki sorulara tıklayarak detaylı yanıtlara ulaşabilirsiniz.</p>
+    <div class="faq-grid" id="faq-grid"></div>
   </div>
 </div>
 
-<!-- SSS MODAL -->
 <div class="modal-overlay" id="faq-overlay" onclick="if(event.target===this) closeFaq()">
   <div class="modal-box">
     <button class="modal-close" onclick="closeFaq()" aria-label="Kapat">✕</button>
-    <div class="modal-icon" id="faq-icon">❓</div>
+    <div class="modal-icon">❓</div>
     <div class="modal-title" id="faq-title"></div>
     <div class="modal-body" id="faq-body"></div>
     <div class="modal-cta">
-      <span data-tr="Daha fazla soru için ulaşın" data-en="Reach out for more questions">Daha fazla soru için ulaşın</span>
-      <a href="#iletisim" class="btn-primary" onclick="closeFaq()" style="font-size:0.85rem;" data-tr="İletişime geç" data-en="Get in touch">İletişime geç</a>
+      <span id="faq-cta-label">Daha fazla soru için ulaşın</span>
+      <a href="#iletisim" class="btn-primary" onclick="closeFaq()" style="font-size:0.85rem;" id="faq-cta-btn">İletişime geç</a>
     </div>
   </div>
 </div>
@@ -687,113 +964,6 @@
   <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiB2aWV3Qm94PSIwIDAgMzQwIDI5NSIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDx0aXRsZT5Va3VsZWxlIMSwc3RhbmJ1bDwvdGl0bGU+CiAgPGRlc2M+VWt1bGVsZSDEsHN0YW5idWwgbG9nb3N1IOKAlCBsYWNpdmVydCBhcmthIHBsYW4sIGFsdMSxbiB1a3VsZWxlIGlsbMO8c3RyYXN5b251PC9kZXNjPgoKICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjI5NSIgcng9IjE2IiBmaWxsPSIjMEQxQjJBIi8+CgogIDwhLS0gw5xzdCBldGlrZXQgLS0+CiAgPHRleHQgeD0iMTcwIiB5PSIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiNFOEE4MzgiIGZvbnQtZmFtaWx5PSInRE0gU2FucycsJ0ludGVyJyxzYW5zLXNlcmlmIiBvcGFjaXR5PSIwLjY1Ij5VS1VMRUxFIMSwU1RBTkJVTDwvdGV4dD4KCiAgPCEtLSBVa3VsZWxlIGfDtnZkZXNpIC0tPgogIDxlbGxpcHNlIGN4PSIxNTUiIGN5PSIxOTUiIHJ4PSI2OCIgcnk9Ijg1IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPGVsbGlwc2UgY3g9IjE1NSIgY3k9IjE5NSIgcng9IjQ4IiByeT0iNjEiIGZpbGw9IiNENEI4N0EiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8IS0tIFNlcyBkZWxpxJ9pIC0tPgogIDxjaXJjbGUgY3g9IjE1NSIgY3k9IjE5NSIgcj0iMTgiIGZpbGw9IiMwYTEyMTgiLz4KICA8Y2lyY2xlIGN4PSIxNTUiIGN5PSIxOTUiIHI9IjE0IiBmaWxsPSIjMTExZTJhIi8+CiAgPCEtLSBLw7ZwcsO8IC0tPgogIDxyZWN0IHg9IjEzNiIgeT0iMjMwIiB3aWR0aD0iMzgiIGhlaWdodD0iOCIgcng9IjIuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDwhLS0gVGVsbGVyIGFuYSBnw7Z2ZGUgLS0+CiAgPGxpbmUgeDE9IjE0MSIgeTE9IjIzMiIgeDI9IjE0MSIgeTI9IjI4MCIgc3Ryb2tlPSIjOEI3MzU1IiBzdHJva2Utd2lkdGg9IjEuMSIvPgogIDxsaW5lIHgxPSIxNDkiIHkxPSIyMzIiIHgyPSIxNDkiIHkyPSIyODAiIHN0cm9rZT0iIzhCNzM1NSIgc3Ryb2tlLXdpZHRoPSIxLjEiLz4KICA8bGluZSB4MT0iMTYwIiB5MT0iMjMyIiB4Mj0iMTYwIiB5Mj0iMjgwIiBzdHJva2U9IiM4QjczNTUiIHN0cm9rZS13aWR0aD0iMS4xIi8+CiAgPGxpbmUgeDE9IjE2OCIgeTE9IjIzMiIgeDI9IjE2OCIgeTI9IjI4MCIgc3Ryb2tlPSIjOEI3MzU1IiBzdHJva2Utd2lkdGg9IjEuMSIvPgoKICA8IS0tIFNhcCAtLT4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNzYiIGhlaWdodD0iMTYiIHJ4PSI0IiBmaWxsPSIjQzhBOTZFIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS41IgogICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc0LDEzOCkgcm90YXRlKC0zMikiLz4KCiAgPCEtLSBCdXJndWxhciBrdXR1c3UgLS0+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjQyIiByeD0iNSIgZmlsbD0iI0I4OTQ0QSIgc3Ryb2tlPSIjMGExMjE4IiBzdHJva2Utd2lkdGg9IjEuNSIKICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiw4Nikgcm90YXRlKC0zMikiLz4KICA8IS0tIEJ1cmd1IG5va3RhbGFyxLEgLS0+CiAgPGNpcmNsZSBjeD0iMjE4IiBjeT0iOTciIHI9IjQuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxjaXJjbGUgY3g9IjIzMiIgY3k9IjkwIiByPSI0LjUiIGZpbGw9IiMwYTEyMTgiLz4KICA8Y2lyY2xlIGN4PSIyMjYiIGN5PSIxMTciIHI9IjQuNSIgZmlsbD0iIzBhMTIxOCIvPgogIDxjaXJjbGUgY3g9IjI0MCIgY3k9IjExMCIgcj0iNC41IiBmaWxsPSIjMGExMjE4Ii8+CgogIDwhLS0gUGVyZGUgw6dpemdpbGVyaSAtLT4KICA8bGluZSB4MT0iMTg0IiB5MT0iMTU1IiB4Mj0iMTk2IiB5Mj0iMTMzIiBzdHJva2U9IiMwYTEyMTgiIHN0cm9rZS13aWR0aD0iMS4yIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPGxpbmUgeDE9IjE5NCIgeTE9IjE2MSIgeDI9IjIwNiIgeTI9IjEzOSIgc3Ryb2tlPSIjMGExMjE4IiBzdHJva2Utd2lkdGg9IjEuMiIgb3BhY2l0eT0iMC41NSIvPgogIDxsaW5lIHgxPSIyMDQiIHkxPSIxNjciIHgyPSIyMTUiIHkyPSIxNDUiIHN0cm9rZT0iIzBhMTIxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNTUiLz4KCiAgPCEtLSBUZWxsZXIgKHNhcCDDvHplcmksIGFsdMSxbikgLS0+CiAgPGxpbmUgeDE9IjE0MSIgeTE9IjI4MCIgeDI9IjE4MyIgeTI9IjE1MiIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjAuOTUiIG9wYWNpdHk9IjAuNzUiLz4KICA8bGluZSB4MT0iMTQ5IiB5MT0iMjgwIiB4Mj0iMTkzIiB5Mj0iMTU4IiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMC45NSIgb3BhY2l0eT0iMC43NSIvPgogIDxsaW5lIHgxPSIxNjAiIHkxPSIyODAiIHgyPSIyMDMiIHkyPSIxNjQiIHN0cm9rZT0iI0U4QTgzOCIgc3Ryb2tlLXdpZHRoPSIwLjk1IiBvcGFjaXR5PSIwLjc1Ii8+CiAgPGxpbmUgeDE9IjE2OCIgeTE9IjI4MCIgeDI9IjIxMSIgeTI9IjE2OSIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjAuOTUiIG9wYWNpdHk9IjAuNzUiLz4KCiAgPCEtLSBNYXJ0xLFsYXIgLS0+CiAgPHBhdGggZD0iTTgyIDc4IFE5MSA3MSAxMDAgNzgiICBmaWxsPSJub25lIiBzdHJva2U9IiNFOEE4MzgiIHN0cm9rZS13aWR0aD0iMiIgICBzdHJva2UtbGluZWNhcD0icm91bmQiIG9wYWNpdHk9IjAuNiIvPgogIDxwYXRoIGQ9Ik0xMDQgNjIgUTExNSA1NCAxMjYgNjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0U4QTgzOCIgc3Ryb2tlLXdpZHRoPSIyIiAgIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC41Ii8+CiAgPHBhdGggZD0iTTE5OCA3MCBRMjA3IDYzIDIxNiA3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjQ1Ii8+CiAgPHBhdGggZD0iTTIyMiA1NiBRMjI5IDUwIDIzNiA1NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRThBODM4IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjM1Ii8+Cjwvc3ZnPgo=" alt="Ukulele İstanbul" style="height:56px;width:auto;opacity:0.45;margin-bottom:0.8rem;display:block;margin-left:auto;margin-right:auto;">
   © 2025 <span>Ukulele İstanbul</span> · Erkin Soylu · Kadıköy, İstanbul
 </footer>
-
-<script>
-// SSS verileri
-var faqData = {
-  q1:  { tr: { t:'Ukulele nedir?', b:'Ukulele, Hawaii kökenli dört telli küçük bir telli çalgıdır. 19. yüzyılda Portekizlilerin Machete adlı enstrümanından evrimleşmiştir. Naylon ya da florokarbon teller ile donatılmış gövdesi, gitara kıyasla çok daha yumuşak ve sıcak bir ses üretir. Bugün dünya genelinde milyonlarca kişi tarafından sevilen, taşıması kolay ve öğrenmesi nispeten kolay bir enstrümandır.' },
-       en: { t:'What is a ukulele?', b:'The ukulele is a small, four-stringed instrument of Hawaiian origin. It evolved in the 19th century from the Portuguese Machete. Strung with nylon or fluorocarbon strings, it produces a softer, warmer sound than a guitar. Today it is loved by millions worldwide — easy to carry and relatively easy to learn.' } },
-  q2:  { tr: { t:'Kaç çeşit ukulele vardır?', b:'Dört ana boyut vardır: Soprano (en küçük, en geleneksel ses), Concert (biraz daha büyük ve dolgun ses), Tenor (daha geniş perdeler, güçlü ses), Baritone (gitara en yakın ses, farklı akort). Bunların yanı sıra Bass Ukulele ve 6-8 telli modeller de mevcuttur. Yeni başlayanlar için Soprano ya da Concert boyutu önerilir.' },
-       en: { t:'How many types of ukulele are there?', b:'There are four main sizes: Soprano (smallest, most traditional sound), Concert (slightly larger and fuller sound), Tenor (wider frets, powerful sound), and Baritone (closest to guitar, different tuning). There are also Bass Ukuleles and 6-8 string models. Soprano or Concert is recommended for beginners.' } },
-  q3:  { tr: { t:'Ukulele öğrenmesi zor mu?', b:'Hayır — ukulele, başlangıç seviyesindeki enstrümanlar arasında en kolay öğrenilenlerden biridir. Yalnızca dört tel ve nispeten yumuşak teller, parmak acısını minimuma indirir. Birkaç temel akor ile çok sayıda parça çalınabilir. Doğru bir yönlendirmeyle ilk haftalar içinde parça çalmaya başlamak mümkündür.' },
-       en: { t:'Is ukulele hard to learn?', b:'No — the ukulele is one of the easiest instruments for beginners. Only four strings and relatively soft strings minimize finger pain. With just a few basic chords you can play a large number of songs. With proper guidance it is possible to start playing pieces within the first few weeks.' } },
-  q4:  { tr: { t:'Hiç müzik geçmişim olmadan öğrenebilir miyim?', b:'Kesinlikle evet. Ukulele, müzik geçmişi olmayan kişiler için ideal bir başlangıç noktasıdır. Nota okuma bilgisi zorunlu değildir; akor diyagramları ve ritim çalışmaları ile hızla ilerleme kaydedebilirsiniz. Birebir atölyelerde müfredat tamamen sizin seviyenize göre şekillendirilir.' },
-       en: { t:'Can I learn without any music background?', b:'Absolutely yes. The ukulele is an ideal starting point for people with no music background. Reading music notation is not required; you can progress quickly using chord diagrams and rhythm exercises. In one-on-one workshops the curriculum is shaped entirely around your level.' } },
-  q5:  { tr: { t:'Hangi yaşta başlamalıyım?', b:'Ukulele öğrenmek için bir yaş sınırı yoktur. Çocuklar için 6-7 yaş uygun bir başlangıç olabilir. Yetişkinler ve yaşlılar da rahatlıkla öğrenebilir. Küçük boyutu ve yumuşak telleri sayesinde her yaştan katılımcıya uygundur. Önemli olan yaş değil, merak ve istektir.' },
-       en: { t:'What age should I start?', b:'There is no age limit for learning ukulele. For children, 6-7 years old can be a good start. Adults and seniors can learn comfortably too. Thanks to its small size and soft strings it is suitable for participants of all ages. What matters is not age but curiosity and desire.' } },
-  q6:  { tr: { t:'İlk ukulelemi nasıl seçmeliyim?', b:'İlk ukulele için Soprano ya da Concert boyutu önerilir. Bütçe olarak orta segment bir enstrüman (Türkiye\'de 1500-3000 TL arası) kaliteli bir başlangıç sağlar. Marka olarak Kala, Mahalo, Flight gibi isimler güvenilirdir. Ukulele Istanbul olarak katılımcılarımızın satın alma sürecinde birebir rehberlik ediyoruz.' },
-       en: { t:'How should I choose my first ukulele?', b:'Soprano or Concert size is recommended for the first ukulele. A mid-range instrument budget-wise provides a quality start. Brands such as Kala, Mahalo and Flight are reliable. At Ukulele Istanbul we guide participants one-on-one through the purchasing process.' } },
-  q7:  { tr: { t:'Ukulele ne kadar sürede öğrenilir?', b:'İlk birkaç akor ve basit parçalar için 2-4 hafta yeterlidir. Orta seviye repertuvar ve teknikler için 6 ay-1 yıl sürekli pratik önerilir. İleri seviye için ise bu süre 2-3 yıla uzayabilir. Günde 15-20 dakikalık düzenli pratik, haftalık birkaç saatlik yoğun çalışmadan çok daha etkilidir.' },
-       en: { t:'How long does it take to learn ukulele?', b:'2-4 weeks is enough for the first few chords and simple pieces. 6 months to 1 year of continuous practice is recommended for intermediate repertoire and techniques. For advanced level this can extend to 2-3 years. 15-20 minutes of regular daily practice is far more effective than a few hours of intensive practice per week.' } },
-  q8:  { tr: { t:'Ukulele mi gitar mı, hangisi daha kolay?', b:'Ukulele genellikle gitardan daha kolay kabul edilir: daha az tel, daha küçük gövde, daha yumuşak teller. Öte yandan gitarı bilen birinin ukuleleye geçişi de oldukça hızlı olur. Ukulele, parmak gücü ve koordinasyon gerektiren akor baskılama konusunda yeni başlayanlar için daha az zorludur.' },
-       en: { t:'Ukulele or guitar — which is easier?', b:'The ukulele is generally considered easier than the guitar: fewer strings, smaller body, softer strings. On the other hand, someone who knows the guitar can switch to ukulele very quickly. The ukulele is less challenging for beginners when it comes to the finger strength and coordination required for chord pressing.' } },
-  q9:  { tr: { t:'Akort nasıl yapılır?', b:'Standart ukulele akordu G-C-E-A\'dır (soldan sağa, yukarıdan aşağıya). Akort için telefon uygulamaları (GuitarTuna, Fender Tune) ya da clip-on akort aleti kullanılabilir. Soprano ve Concert genellikle aynı akordu kullanır. Tenor de çoğunlukla G-C-E-A ile akort edilir, Baritone ise D-G-B-E kullanır.' },
-       en: { t:'How do I tune a ukulele?', b:'Standard ukulele tuning is G-C-E-A (left to right, top to bottom). Phone apps (GuitarTuna, Fender Tune) or a clip-on tuner can be used. Soprano and Concert generally use the same tuning. Tenor is also mostly tuned to G-C-E-A, while Baritone uses D-G-B-E.' } },
-  q10: { tr: { t:'Ukulele teli nasıl değiştirilir?', b:'Köprü bölümündeki düğümü çözerek eski teli çıkarabilirsiniz. Yeni teli köprüdeki delikten geçirin, bir düğüm yapın. Diğer ucunu burguya takın ve gererek akort edin. İlk birkaç gün teller uzayacağı için sık akort gerekebilir. Florokarbon teller nylon\'a kıyasla daha hızlı stabil olur.' },
-       en: { t:'How do I change ukulele strings?', b:'You can remove the old string by untying the knot at the bridge. Thread the new string through the hole in the bridge and tie a knot. Attach the other end to the tuning peg, tension it and tune. The strings may stretch for the first few days so frequent tuning may be needed. Fluorocarbon strings stabilize faster than nylon.' } },
-  q11: { tr: { t:'Kaç tel vardır, ne işe yarar?', b:'Ukulelede 4 tel vardır. Standart akort G-C-E-A\'dır. İlginç olan, G telinin "reentrant" yani dönüş akordu denilen düzende olmasıdır: en kalın sesli tel en altta değil en üsttedir. Bu özellik ukuleleye kendine özgü, neşeli ve tiz sesini verir. Her tel farklı perdelerle farklı notalar üretir.' },
-       en: { t:'How many strings does it have and what do they do?', b:'A ukulele has 4 strings. Standard tuning is G-C-E-A. Interestingly, the G string uses a "reentrant" tuning: the lowest-pitched string is not at the bottom but at the top. This feature gives the ukulele its distinctive, cheerful and bright sound. Each string produces different notes on different frets.' } },
-  q12: { tr: { t:'Ukulele için parmak nasıl sertleştirilir?', b:'Ukulele nylon veya florokarbon tel kullandığı için gitar tellerine kıyasla parmak ucunu çok daha az zorlar. Yine de başlangıçta hafif hassasiyet hissedilebilir. Düzenli pratikle 2-3 hafta içinde bu his büyük ölçüde geçer. Zorunlu değildir ama soğuk su ile parmak uçlarını soğutmak da geçici bir rahatlama sağlayabilir.' },
-       en: { t:'How do I toughen my fingertips for ukulele?', b:'Because ukulele uses nylon or fluorocarbon strings, it is much gentler on fingertips than guitar strings. Still, some slight sensitivity may be felt at first. With regular practice this feeling largely passes within 2-3 weeks. It is not necessary, but cooling your fingertips with cold water can also provide temporary relief.' } },
-  q13: { tr: { t:'Akor diyagramları nasıl okunur?', b:'Akor diyagramları, ukulele sapını dikey olarak gösteren ızgara şeklindeki çizimlerdir. Yatay çizgiler perdeleri, dikey çizgiler telleri temsil eder. Üzerindeki noktalar, hangi parmağın hangi perde ve tele bastığını gösterir. X işareti o telin çalınmadığını, O işareti ise açık (basılmadan) çalındığını belirtir.' },
-       en: { t:'How do I read chord diagrams?', b:'Chord diagrams are grid-shaped drawings showing the ukulele neck vertically. Horizontal lines represent frets, vertical lines represent strings. Dots on the diagram show which finger presses which fret and string. An X mark means that string is not played, while an O mark means it is played open (without pressing).' } },
-  q14: { tr: { t:'Strumming (vurma) teknikleri nelerdir?', b:'Temel strumming teknikleri şunlardır: Down strum (aşağı vurma), Up strum (yukarı vurma), ve bunların kombinasyonları. Başlangıç için D-DU-UDU ritmi en yaygın kalıptır. Parmak, pick (pena) ya da başparmak kullanılabilir. Ritim hissi geliştikçe syncopation ve muted strumming gibi daha ileri teknikler öğrenilebilir.' },
-       en: { t:'What are strumming techniques?', b:'Basic strumming techniques include: Down strum, Up strum, and combinations of both. The D-DU-UDU pattern is the most common starting pattern. You can use a finger, pick, or thumb. As your sense of rhythm develops, more advanced techniques such as syncopation and muted strumming can be learned.' } },
-  q15: { tr: { t:'Fingerpicking nedir, nasıl yapılır?', b:'Fingerpicking, tellerin pena ya da strumming yerine parmak uçlarıyla tek tek ya da belirli bir örüntüyle çalınması tekniğidir. Ukulele için klasik gitar fingerpicking kalıpları uyarlanabilir. Başlangıç olarak p-i-m-a (baş-işaret-orta-yüzük) parmak atamasını öğrenmek faydalıdır. Erkin Soylu bu tekniği klasik gitar eğitiminden uyarlamaktadır.' },
-       en: { t:'What is fingerpicking and how is it done?', b:'Fingerpicking is the technique of playing strings individually or in a specific pattern with fingertips rather than a pick or strumming. Classical guitar fingerpicking patterns can be adapted for ukulele. Learning the p-i-m-a (thumb-index-middle-ring) finger assignment is helpful as a starting point. Erkin Soylu adapts this technique from classical guitar training.' } },
-  q16: { tr: { t:'Soprano, Concert, Tenor farkı nedir?', b:'Soprano: 53 cm, en geleneksel "ukulele sesi", taşıması en kolay. Concert: 58 cm, biraz daha derin ses, perde aralıkları biraz daha geniş. Tenor: 66 cm, en geniş perde aralığı, en güçlü ses, profesyonellerce tercih edilir. Yeni başlayanlar için Soprano veya Concert, büyük elliler için Tenor önerilir.' },
-       en: { t:'What is the difference between Soprano, Concert and Tenor?', b:'Soprano: 53 cm, most traditional "ukulele sound", easiest to carry. Concert: 58 cm, slightly deeper sound, slightly wider fret spacing. Tenor: 66 cm, widest fret spacing, strongest sound, preferred by professionals. Soprano or Concert is recommended for beginners, Tenor for those with large hands.' } },
-  q17: { tr: { t:'Ukulele bakımı nasıl yapılır?', b:'Kullanımdan sonra nemli bir bezle gövdeyi silin. Aşırı sıcak, soğuk ve nemden koruyun (ideal nem: %45-55). Çantasında ya da kılıfında saklayın. Telleri her 3-6 ayda bir değiştirin. Sap eğriliği (truss rod) ukulelede genellikle olmaz, ancak eğrilme fark ederseniz bir luthier\'a danışın.' },
-       en: { t:'How do I maintain my ukulele?', b:'Wipe the body with a damp cloth after use. Protect from extreme heat, cold and humidity (ideal humidity: 45-55%). Store in a bag or case. Change strings every 3-6 months. Ukuleles generally do not have a truss rod, but if you notice warping consult a luthier.' } },
-  q18: { tr: { t:'Hangi müzik stilleri çalınabilir?', b:'Ukulele son derece çok yönlü bir enstrümandır: Hawaiian müzik, folk, pop, caz, klasik, Latin, reggae, blues ve daha fazlası. Türkçe pop ve halk müziği de ukuleleye çok iyi uyarlanabilir. YouTube\'da da görebileceğiniz gibi neredeyse her türlü parça ukuleleye uyarlanmaktadır.' },
-       en: { t:'What music styles can be played on ukulele?', b:'The ukulele is an extremely versatile instrument: Hawaiian music, folk, pop, jazz, classical, Latin, reggae, blues and more. Turkish pop and folk music also adapts very well to ukulele. As you can see on YouTube, almost any type of piece is being arranged for ukulele.' } },
-  q19: { tr: { t:'Ukulele fiyatları ne kadar olmalı?', b:'Başlangıç seviyesi: 800-2000 TL arası. Orta seviye: 2000-6000 TL. İleri seviye / profesyonel: 6000 TL ve üzeri. 800 TL\'nin altındaki enstrümanlar çoğunlukla akort tutmaz ve çalmayı zorlaştırır. İlk enstrüman için orta segment her zaman daha iyi bir yatırımdır.' },
-       en: { t:'How much should a ukulele cost?', b:'Beginner level: 800-2000 TRY. Intermediate level: 2000-6000 TRY. Advanced / professional: 6000 TRY and above. Instruments below 800 TRY often do not hold tuning and make playing harder. Mid-range is always a better investment for your first instrument.' } },
-  q20: { tr: { t:'Nereden iyi ukulele alabilirim?', b:'İstanbul\'da Kadıköy, Bağcılar ve Taksim çevresindeki müzik marketleri iyi seçenekler sunar. Online platformlar da (GittiGidiyor, Trendyol, Thomann) kullanılabilir ancak enstrümanı fiziksel olarak denemek her zaman daha sağlıklıdır. Ukulele Istanbul olarak katılımcılarımıza doğru enstrümanı seçmelerinde bizzat eşlik ediyoruz.' },
-       en: { t:'Where can I buy a good ukulele?', b:'Music stores around Kadıköy, Bağcılar and Taksim in Istanbul offer good options. Online platforms (GittiGidiyor, Trendyol, Thomann) can also be used, but physically trying the instrument is always healthier. At Ukulele Istanbul we personally accompany our participants in choosing the right instrument.' } }
-};
-
-var currentLang = 'tr';
-
-function openFaq(key) {
-  var d = faqData[key][currentLang];
-  document.getElementById('faq-title').textContent = d.t;
-  document.getElementById('faq-body').innerHTML = '<p>' + d.b + '</p>';
-  document.getElementById('faq-overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeFaq() {
-  document.getElementById('faq-overlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeFaq(); } });
-
-// Dil değiştirici
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-  document.querySelectorAll('[data-tr]').forEach(function(el) {
-    var txt = el.getAttribute('data-' + lang);
-    if (txt) el.textContent = txt;
-  });
-
-  // Statik metinleri de güncelle
-  var texts = {
-    tr: {
-      'hero-eyebrow': 'İstanbul · Kadıköy · 2013\'ten beri',
-      'hero-h1': 'Ukulele öğrenmek<br>bu kadar <em>kolay</em> olmamıştı.',
-      'hero-p': 'Erkin Soylu önderliğinde, her seviyeye özel birebir ve grup atölyeleri. İstanbul\'da ukulele kültürünü birlikte büyütüyoruz.',
-      'btn-atolye': 'Atölyelere katıl',
-      'btn-video': 'Videoları izle',
-    },
-    en: {
-      'hero-eyebrow': 'Istanbul · Kadıköy · Since 2013',
-      'hero-h1': 'Learning ukulele has never been this <em>easy</em>.',
-      'hero-p': 'Personalized one-on-one and group workshops led by Erkin Soylu. Growing ukulele culture together in Istanbul.',
-      'btn-atolye': 'Join a Workshop',
-      'btn-video': 'Watch Videos',
-    }
-  };
-
-  var t = texts[lang];
-  var eyebrow = document.querySelector('.hero-eyebrow');
-  if (eyebrow) eyebrow.textContent = t['hero-eyebrow'];
-  var h1 = document.querySelector('.hero h1');
-  if (h1) h1.innerHTML = t['hero-h1'];
-  var hp = document.querySelector('.hero p');
-  if (hp) hp.textContent = t['hero-p'];
-  var btnAtelye = document.querySelector('a[href="#iletisim"].btn-primary');
-  if (btnAtelye) btnAtelye.textContent = t['btn-atolye'];
-  var btnVideo = document.querySelector('a[href="#videolar"].btn-outline');
-  if (btnVideo) btnVideo.textContent = t['btn-video'];
-
-  // Mobil menü aria label
-  var mobileBtn = document.querySelector('.nav-mobile-btn');
-  if (mobileBtn) mobileBtn.setAttribute('aria-label', lang === 'tr' ? 'Menü' : 'Menu');
-}
-</script>
 
 </body>
 </html>
