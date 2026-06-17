@@ -319,33 +319,33 @@
 
 <!-- ATOLYELER -->
 <section class="section" id="atolyeler">
-  <div class="section-label">Atölyeler</div>
-  <div class="section-title">Her seviye için bir format var</div>
-  <p class="section-sub">Soprano'dan tenora, başlangıçtan ileri seviyeye — kendi hızında, kendi müziğinle öğren.</p>
+  <div class="section-label" data-tr="Atölyeler" data-en="Workshops">Atölyeler</div>
+  <div class="section-title" data-tr="Her seviye için bir format var" data-en="A format for every level">Her seviye için bir format var</div>
+  <p class="section-sub" data-tr="Soprano'dan tenora, başlangıçtan ileri seviyeye — kendi hızında, kendi müziğinle öğren." data-en="From soprano to tenor, beginner to advanced — learn at your own pace, with your own music.">Soprano'dan tenora, başlangıçtan ileri seviyeye — kendi hızında, kendi müziğinle öğren.</p>
   <div class="cards-grid">
     <div class="card" onclick="openModal('birebir')">
       <div class="card-icon">🎵</div>
-      <h3>Birebir Atölye</h3>
-      <p>Sana özel bir yol haritası. Kendi tempon, kendi seçtiğin parçalar. Doğrudan Erkin Soylu ile çalışma fırsatı.</p>
-      <span class="card-more">Daha fazla →</span>
+      <h3 data-tr="Birebir Atölye" data-en="One-on-One Workshop">Birebir Atölye</h3>
+      <p data-tr="Sana özel bir yol haritası. Kendi tempon, kendi seçtiğin parçalar. Doğrudan Erkin Soylu ile çalışma fırsatı." data-en="A roadmap tailored just for you. Your pace, your chosen pieces. Work directly with Erkin Soylu.">Sana özel bir yol haritası. Kendi tempon, kendi seçtiğin parçalar. Doğrudan Erkin Soylu ile çalışma fırsatı.</p>
+      <span class="card-more" data-tr="Daha fazla →" data-en="Learn more →">Daha fazla →</span>
     </div>
     <div class="card" onclick="openModal('grup')">
       <div class="card-icon">🎶</div>
-      <h3>Grup Atölyesi</h3>
-      <p>Birlikte çalmak farklı bir enerji yaratır. Aynı seviyedeki katılımcılarla eğlenceli ve sosyal bir ortam.</p>
-      <span class="card-more">Daha fazla →</span>
+      <h3 data-tr="Grup Atölyesi" data-en="Group Workshop">Grup Atölyesi</h3>
+      <p data-tr="Birlikte çalmak farklı bir enerji yaratır. Aynı seviyedeki katılımcılarla eğlenceli ve sosyal bir ortam." data-en="Playing together creates a unique energy. A fun and social environment with fellow participants at the same level.">Birlikte çalmak farklı bir enerji yaratır. Aynı seviyedeki katılımcılarla eğlenceli ve sosyal bir ortam.</p>
+      <span class="card-more" data-tr="Daha fazla →" data-en="Learn more →">Daha fazla →</span>
     </div>
     <div class="card" onclick="openModal('workshop')">
       <div class="card-icon">🛠</div>
-      <h3>Workshop</h3>
-      <p>Belirli teknikler ya da stiller üzerine derinlemesine çalışmak isteyenler için özel odaklı oturumlar.</p>
-      <span class="card-more">Daha fazla →</span>
+      <h3 data-tr="Workshop" data-en="Workshop">Workshop</h3>
+      <p data-tr="Belirli teknikler ya da stiller üzerine derinlemesine çalışmak isteyenler için özel odaklı oturumlar." data-en="Focused sessions for those who want to go deep on specific techniques or styles.">Belirli teknikler ya da stiller üzerine derinlemesine çalışmak isteyenler için özel odaklı oturumlar.</p>
+      <span class="card-more" data-tr="Daha fazla →" data-en="Learn more →">Daha fazla →</span>
     </div>
     <div class="card" onclick="openModal('kulup')">
       <div class="card-icon">🏝</div>
-      <h3>Ukulele Kulübü</h3>
-      <p>Düzenli buluşmalar, birlikte çalma seansları. İstanbul'un ukulele topluluğuna katıl.</p>
-      <span class="card-more">Daha fazla →</span>
+      <h3 data-tr="Ukulele Kulübü" data-en="Ukulele Club">Ukulele Kulübü</h3>
+      <p data-tr="Düzenli buluşmalar, birlikte çalma seansları. İstanbul'un ukulele topluluğuna katıl." data-en="Regular meet-ups and group playing sessions. Join Istanbul's ukulele community.">Düzenli buluşmalar, birlikte çalma seansları. İstanbul'un ukulele topluluğuna katıl.</p>
+      <span class="card-more" data-tr="Daha fazla →" data-en="Learn more →">Daha fazla →</span>
     </div>
   </div>
 </section>
@@ -368,8 +368,9 @@
   var modals = {
     birebir: {
       icon: '🎵',
-      title: 'Birebir Atölye',
-      body: `
+      title_tr: 'Birebir Atölye',
+      title_en: 'One-on-One Workshop',
+      body_tr: `
         <p>Birebir atölyeler, her katılımcının kendi seviyesine ve hedeflerine göre şekillendirilen özel çalışma oturumlarıdır. Erkin Soylu ile birebir geçireceğiniz bu süreçte kendi müzikal yolculuğunuzun rotasını siz çizersiniz.</p>
         <ul>
           <li>Başlangıç, orta ve ileri seviye için ayrı çalışmalar</li>
@@ -378,12 +379,23 @@
           <li>Esnek saat ve gün seçeneği</li>
         </ul>
         <p>Daha önce hiç enstrüman çalmamış olanlardan profesyonel müzisyenlere kadar herkese açıktır.</p>
+      `,
+      body_en: `
+        <p>One-on-one workshops are private sessions tailored to each participant's level and goals. In these sessions with Erkin Soylu, you chart your own musical journey at your own pace.</p>
+        <ul>
+          <li>Separate programmes for beginner, intermediate and advanced levels</li>
+          <li>Progress through pieces of your own choice</li>
+          <li>Focused work on any technique you wish</li>
+          <li>Flexible scheduling — choose your day and time</li>
+        </ul>
+        <p>Open to everyone, from complete beginners to professional musicians.</p>
       `
     },
     grup: {
       icon: '🎶',
-      title: 'Grup Atölyesi',
-      body: `
+      title_tr: 'Grup Atölyesi',
+      title_en: 'Group Workshop',
+      body_tr: `
         <p>Grup atölyeleri, aynı seviyedeki katılımcıların bir arada öğrendiği, sosyal ve eğlenceli bir ortamda ilerlediği çalışma formatıdır. Birlikte çalmak hem motivasyonu artırır hem de müzikal kulağı hızla geliştirir.</p>
         <ul>
           <li>En fazla 4 kişilik gruplar</li>
@@ -393,12 +405,24 @@
           <li>Sosyal buluşma ve etkinlik fırsatları</li>
         </ul>
         <p>Yeni arkadaşlar edinmek ve müziği paylaşmak isteyenler için ideal bir format.</p>
+      `,
+      body_en: `
+        <p>Group workshops are a social and fun learning format where participants of the same level progress together. Playing as a group boosts motivation and rapidly sharpens your musical ear.</p>
+        <ul>
+          <li>Groups of up to 4 participants</li>
+          <li>Beginner or intermediate groups</li>
+          <li>Fast progression and a rich repertoire</li>
+          <li>Ensemble piece work within the group</li>
+          <li>Opportunities for social meet-ups and events</li>
+        </ul>
+        <p>The ideal format for those who want to make new friends and share the joy of music.</p>
       `
     },
     workshop: {
       icon: '🛠',
-      title: 'Workshop',
-      body: `
+      title_tr: 'Workshop',
+      title_en: 'Workshop',
+      body_tr: `
         <p>Workshoplar, belirli bir teknik, stil veya repertuvar üzerine yoğunlaşmak isteyenler için düzenlenen odaklı oturumlardır. Genellikle tek seferlik ya da birkaç hafta süren yoğun çalışmalardır.</p>
         <ul>
           <li>Fingerpicking, strumming, akor geçişleri gibi teknik konular</li>
@@ -409,12 +433,25 @@
           <li>Yıl içinde farklı konularda düzenli etkinlikler</li>
         </ul>
         <p>Yaklaşan workshop tarihleri için iletişime geçin ya da Instagram hesabımızı takip edin.</p>
+      `,
+      body_en: `
+        <p>Workshops are focused sessions for those who want to dive deep into a specific technique, style or repertoire. They are typically one-off events or intensive series lasting a few weeks.</p>
+        <ul>
+          <li>Technical topics: fingerpicking, strumming, chord transitions</li>
+          <li>Specific music styles: rock, pop, classical</li>
+          <li>Introductory workshop for complete beginners</li>
+          <li>Study of a specific composer or era</li>
+          <li>Content suitable for mixed-level participants</li>
+          <li>Regular events on different topics throughout the year</li>
+        </ul>
+        <p>Get in touch or follow us on Instagram for upcoming workshop dates.</p>
       `
     },
     kulup: {
       icon: '🏝',
-      title: 'Ukulele Kulübü',
-      body: `
+      title_tr: 'Ukulele Kulübü',
+      title_en: 'Ukulele Club',
+      body_tr: `
         <p>Ukulele Kulübü, 2013'ten beri İstanbul'da düzenli olarak bir araya gelen ukulele severlerin buluşma noktasıdır. Moda Sahili, Kadıköy ve çevre alanlarda gerçekleştirilen buluşmalar herkese açıktır.</p>
         <ul>
           <li>Her seviyeden katılımcıya açık düzenli buluşmalar</li>
@@ -425,6 +462,18 @@
           <li>Yeni başlayanlar için destekleyici ve samimi ortam</li>
         </ul>
         <p>Bir sonraki buluşmamıza katılmak için Instagram üzerinden bize ulaşın.</p>
+      `,
+      body_en: `
+        <p>The Ukulele Club has been the meeting point for ukulele enthusiasts gathering regularly in Istanbul since 2013. Meet-ups take place at Moda Sahili, Kadıköy and surrounding areas — open to everyone.</p>
+        <ul>
+          <li>Regular meet-ups open to all levels</li>
+          <li>National Ukulele Day celebrations on 2 May</li>
+          <li>World Ukulele Day celebrations on 2 February</li>
+          <li>Outdoor playing sessions and picnic gatherings</li>
+          <li>Peer learning and repertoire sharing</li>
+          <li>A supportive and welcoming environment for beginners</li>
+        </ul>
+        <p>Reach out via Instagram to join our next meet-up.</p>
       `
     }
   };
@@ -432,8 +481,8 @@
   function openModal(key) {
     var m = modals[key];
     document.getElementById('modal-icon').textContent = m.icon;
-    document.getElementById('modal-title').textContent = m.title;
-    document.getElementById('modal-body').innerHTML = m.body;
+    document.getElementById('modal-title').textContent = currentLang === 'en' ? m.title_en : m.title_tr;
+    document.getElementById('modal-body').innerHTML = currentLang === 'en' ? m.body_en : m.body_tr;
     document.getElementById('modal-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -631,20 +680,20 @@
 <section class="contact-section" id="iletisim">
   <div class="contact-inner">
     <div>
-      <div class="section-label">İletişim</div>
-      <div class="section-title">Atölyelere katılmak için<br>hemen ulaşın</div>
-      <p class="section-sub" style="margin-bottom:2rem;">Kadıköy Yeldeğirmeni'nde, sorularınız için her zaman buradayız.</p>
+      <div class="section-label" data-tr="İletişim" data-en="Contact">İletişim</div>
+      <div class="section-title" data-tr="Atölyelere katılmak için hemen ulaşın" data-en="Get in touch to join our workshops">Atölyelere katılmak için<br>hemen ulaşın</div>
+      <p class="section-sub" style="margin-bottom:2rem;" data-tr="Kadıköy Yeldeğirmeni'nde, sorularınız için her zaman buradayız." data-en="Based in Kadıköy Yeldeğirmeni, Istanbul. Always here for your questions.">Kadıköy Yeldeğirmeni'nde, sorularınız için her zaman buradayız.</p>
       <div class="contact-row">
         <div class="contact-ico">📞</div>
-        <div><strong>0543 292 46 00</strong><span>Erkin Soylu</span></div>
+        <div><strong>0543 292 46 00</strong><span data-tr="Erkin Soylu" data-en="Erkin Soylu">Erkin Soylu</span></div>
       </div>
       <div class="contact-row">
         <div class="contact-ico">✉️</div>
-        <div><strong>info@ukuleleistanbul.com</strong><span>E-posta</span></div>
+        <div><strong>info@ukuleleistanbul.com</strong><span data-tr="E-posta" data-en="Email">E-posta</span></div>
       </div>
       <div class="contact-row">
         <div class="contact-ico">📍</div>
-        <div><strong>İstanbul / Kadıköy / Yeldeğirmeni</strong><span>Konum</span></div>
+        <div><strong>İstanbul / Kadıköy / Yeldeğirmeni</strong><span data-tr="Konum" data-en="Location">Konum</span></div>
       </div>
       <div class="social-row">
         <a href="https://instagram.com/ukuleleistanbul" class="social-btn" target="_blank" rel="noopener">📷 Instagram</a>
