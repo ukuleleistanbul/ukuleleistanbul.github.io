@@ -198,6 +198,29 @@
     }
     .modal-close:hover { background: #e8e0d6; }
     .modal-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+
+    /* GALLERY LIGHTBOX */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: rgba(13,27,42,0.92);
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img {
+      max-width: 90vw; max-height: 88vh; border-radius: 6px;
+      animation: modalIn 0.22s ease;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,0.12); border: none; cursor: pointer;
+      width: 42px; height: 42px; border-radius: 50%;
+      font-size: 1.2rem; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    .gallery-item { cursor: pointer; }
     .modal-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem; color: var(--navy);
@@ -553,8 +576,19 @@
     document.body.style.overflow = '';
   }
 
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') { closeModal(); closeLightbox(); }
   });
 </script>
 
@@ -596,32 +630,38 @@
 
       <!-- Blogger'dan mevcut görseller -->
       <div class="gallery-item">
-        <img src="images/uuu.jpg" alt="Ukulele atölyesi" loading="lazy">
+        <img src="images/uuu.jpg" alt="Ukulele atölyesi" loading="lazy" onclick="openLightbox(this.src)">
       </div>
 
       <!-- Kendi fotoğraflarınızı images/ klasörüne yükleyin -->
       <div class="gallery-item">
-        <img src="images/galeri-1.jpg" alt="Atölye fotoğrafı 1" loading="lazy"
+        <img src="images/galeri-1.jpg" alt="Atölye fotoğrafı 1" loading="lazy" onclick="openLightbox(this.src)"
           onerror="this.parentElement.classList.add('placeholder'); this.parentElement.innerHTML='<div class=\'ph-icon\'>📷</div><span>images/galeri-1.jpg</span>';">
       </div>
       <div class="gallery-item">
-        <img src="images/galeri-2.jpg" alt="Atölye fotoğrafı 2" loading="lazy"
+        <img src="images/galeri-2.jpg" alt="Atölye fotoğrafı 2" loading="lazy" onclick="openLightbox(this.src)"
           onerror="this.parentElement.classList.add('placeholder'); this.parentElement.innerHTML='<div class=\'ph-icon\'>📷</div><span>images/galeri-2.jpg</span>';">
       </div>
       <div class="gallery-item">
-        <img src="images/galeri-3.jpg" alt="Atölye fotoğrafı 3" loading="lazy"
+        <img src="images/galeri-3.jpg" alt="Atölye fotoğrafı 3" loading="lazy" onclick="openLightbox(this.src)"
           onerror="this.parentElement.classList.add('placeholder'); this.parentElement.innerHTML='<div class=\'ph-icon\'>📷</div><span>images/galeri-3.jpg</span>';">
       </div>
       <div class="gallery-item">
-        <img src="images/galeri-4.jpg" alt="Atölye fotoğrafı 4" loading="lazy"
+        <img src="images/galeri-4.jpg" alt="Atölye fotoğrafı 4" loading="lazy" onclick="openLightbox(this.src)"
           onerror="this.parentElement.classList.add('placeholder'); this.parentElement.innerHTML='<div class=\'ph-icon\'>📷</div><span>images/galeri-4.jpg</span>';">
       </div>
       <div class="gallery-item">
-        <img src="images/galeri-5.jpg" alt="Atölye fotoğrafı 5" loading="lazy"
+        <img src="images/galeri-5.jpg" alt="Atölye fotoğrafı 5" loading="lazy" onclick="openLightbox(this.src)"
           onerror="this.parentElement.classList.add('placeholder'); this.parentElement.innerHTML='<div class=\'ph-icon\'>📷</div><span>images/galeri-5.jpg</span>';">
       </div>
     </div>
   </div>
+</div>
+
+<!-- GALERİ LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Kapat">✕</button>
+  <img id="lightbox-img" src="" alt="">
 </div>
 
 <!-- VIDEOLAR -->
@@ -878,7 +918,7 @@ function closeFaq() {
   document.getElementById('faq-overlay').classList.remove('active');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeFaq(); } });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); closeFaq(); closeLightbox(); } });
 
 // Sayfa yüklenince SSS'i oluştur
 renderFaq();
