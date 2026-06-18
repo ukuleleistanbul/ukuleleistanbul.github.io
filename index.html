@@ -670,109 +670,20 @@
     <div class="section-title" data-tr="Son videolardan seçmeler" data-en="Highlights from recent videos">Son videolardan seçmeler</div>
     <p class="section-sub" data-tr="Ukulele uyarlamaları, atölye içerikleri ve etkinlik videoları için kanalımızı takip edin." data-en="Follow our channel for ukulele covers, workshop content and event videos.">Ukulele uyarlamaları, atölye içerikleri ve etkinlik videoları için kanalımızı takip edin.</p>
     <div class="videos-grid" id="videos-grid">
-      <!-- Yükleniyor -->
-      <div class="video-card" style="padding:2rem;display:flex;align-items:center;justify-content:center;min-height:180px;">
-        <span style="color:var(--text-muted);font-size:0.9rem;" data-tr="Videolar yükleniyor…" data-en="Loading videos…">Videolar yükleniyor…</span>
+      <div class="video-cta-card">
+        <div class="play-icon">▶</div>
+        <p data-tr="Tüm videoları YouTube kanalımızda izleyin" data-en="Watch all videos on our YouTube channel">Tüm videoları YouTube kanalımızda izleyin</p>
+        <a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener" data-tr="Kanala git" data-en="Go to channel">Kanala git</a>
+      </div>
+      <div class="video-cta-card" style="background:var(--navy);border:none;">
+        <div style="font-size:1.8rem;margin-bottom:0.8rem;">🔒</div>
+        <p style="font-weight:600;color:#F5C96B;margin-bottom:0.5rem;" data-tr="Üyelere Özel İçerikler" data-en="Member-Only Content">Üyelere Özel İçerikler</p>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.82rem;margin-bottom:1.4rem;" data-tr="YouTube kanalıma üye olarak kapsamlı atölye içeriklerine erişebilirsin." data-en="Join my YouTube channel as a member to access exclusive workshop content.">YouTube kanalıma üye olarak kapsamlı atölye içeriklerine erişebilirsin.</p>
+        <a href="https://www.youtube.com/@UkuleleIstanbul/join" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener" data-tr="Üye ol" data-en="Join">Üye ol</a>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  (function() {
-    var CHANNEL_ID = 'UCSRguOzp_HOI1CaD0iaTx1Q';
-    var RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
-    var PROXY = 'https://api.allorigins.win/get?url=' + encodeURIComponent(RSS_URL);
-
-    fetch(PROXY)
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var parser = new DOMParser();
-        var xml = parser.parseFromString(data.contents, 'text/xml');
-        var entries = xml.querySelectorAll('entry');
-        var grid = document.getElementById('videos-grid');
-        grid.innerHTML = '';
-
-        var count = 0;
-        entries.forEach(function(entry) {
-          if (count >= 1) return;
-          var videoId = entry.querySelector('videoId') ? entry.querySelector('videoId').textContent
-            : entry.querySelector('id').textContent.replace('yt:video:', '');
-          var title = entry.querySelector('title').textContent;
-
-          var card = document.createElement('div');
-          card.className = 'video-card';
-          card.innerHTML =
-            '<div class="video-thumb">' +
-              '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen loading="lazy" title="' + title + '"></iframe>' +
-            '</div>' +
-            '<div class="video-info"><h4>' + title + '</h4></div>';
-          grid.appendChild(card);
-          count++;
-        });
-
-        var lang = (typeof currentLang !== 'undefined') ? currentLang : 'tr';
-        var T = {
-          tr: { member: 'Üyelere Özel İçerikler', memberDesc: 'YouTube kanalıma üye olarak kapsamlı atölye içeriklerine erişebilirsin.', join: 'Üye ol', allVideos: 'Tüm videoları YouTube kanalımızda izleyin', goChannel: 'Kanala git', latest: 'En yeni video' },
-          en: { member: 'Member-Only Content', memberDesc: 'Join my YouTube channel as a member to access exclusive workshop content.', join: 'Join', allVideos: 'Watch all videos on our YouTube channel', goChannel: 'Go to channel', latest: 'Latest video' }
-        };
-        var t = T[lang] || T.tr;
-
-        var memberCard = document.createElement('div');
-        memberCard.className = 'video-cta-card';
-        memberCard.style.cssText = 'background:var(--navy);border:none;';
-        memberCard.innerHTML =
-          '<div style="font-size:1.8rem;margin-bottom:0.8rem;">🔒</div>' +
-          '<p style="font-weight:600;color:#F5C96B;margin-bottom:0.5rem;">' + t.member + '</p>' +
-          '<p style="color:rgba(255,255,255,0.55);font-size:0.82rem;margin-bottom:1.4rem;">' + t.memberDesc + '</p>' +
-          '<a href="https://www.youtube.com/@UkuleleIstanbul/join" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">' + t.join + '</a>';
-        grid.appendChild(memberCard);
-
-        var ctaCard = document.createElement('div');
-        ctaCard.className = 'video-cta-card';
-        ctaCard.innerHTML =
-          '<div class="play-icon">▶</div>' +
-          '<p>' + t.allVideos + '</p>' +
-          '<a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">' + t.goChannel + '</a>';
-        grid.appendChild(ctaCard);
-      })
-      .catch(function() {
-        var lang = (typeof currentLang !== 'undefined') ? currentLang : 'tr';
-        var T2 = {
-          tr: { latest: 'En yeni video', allVideos: 'Tüm videoları YouTube kanalımızda izleyin', goChannel: 'Kanala git' },
-          en: { latest: 'Latest video', allVideos: 'Watch all videos on our YouTube channel', goChannel: 'Go to channel' }
-        };
-        var t2 = T2[lang] || T2.tr;
-        var grid = document.getElementById('videos-grid');
-        grid.innerHTML =
-          '<div class="video-card"><div class="video-thumb"><iframe src="https://www.youtube.com/embed?listType=user_uploads&list=UkuleleIstanbul&index=0" allowfullscreen loading="lazy"></iframe></div><div class="video-info"><h4>' + t2.latest + '</h4></div></div>' +
-          '<div class="video-cta-card"><div class="play-icon">▶</div><p>' + t2.allVideos + '</p><a href="https://www.youtube.com/@UkuleleIstanbul" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">' + t2.goChannel + '</a></div>';
-      });
-  })();
-</script>
-
-<script>
-  (function() {
-    var grid = document.getElementById('videos-grid');
-    if (grid && grid.children.length <= 1) {
-      var lang = (typeof currentLang !== 'undefined') ? currentLang : 'tr';
-      var T3 = {
-        tr: { member: 'Üyelere Özel İçerikler', memberDesc: 'YouTube kanalıma üye olarak kapsamlı atölye içeriklerine erişebilirsin.', join: 'Üye ol' },
-        en: { member: 'Member-Only Content', memberDesc: 'Join my YouTube channel as a member to access exclusive workshop content.', join: 'Join' }
-      };
-      var t3 = T3[lang] || T3.tr;
-      var memberCard = document.createElement('div');
-      memberCard.className = 'video-cta-card';
-      memberCard.style.cssText = 'background:var(--navy);border:none;';
-      memberCard.innerHTML =
-        '<div style="font-size:1.8rem;margin-bottom:0.8rem;">🔒</div>' +
-        '<p style="color:rgba(255,255,255,0.65);margin-bottom:0.5rem;font-weight:500;color:#F5C96B;">' + t3.member + '</p>' +
-        '<p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-bottom:1.4rem;">' + t3.memberDesc + '</p>' +
-        '<a href="https://www.youtube.com/@UkuleleIstanbul/join" class="btn-primary" style="font-size:0.85rem;" target="_blank" rel="noopener">' + t3.join + '</a>';
-      grid.appendChild(memberCard);
-    }
-  })();
-</script>
 
 <!-- SSS -->
 <div class="faq-section" id="sss">
